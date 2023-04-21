@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* third-party libraries CSS */
+
+* {
+	scroll-behavior: smooth;
+}
+
+#supportCheckbox:checked ~ div span {
+	@apply opacity-100;
+}
+
+@layer base {
+	body {
+		@apply font-inter font-normal relative z-1;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-outfit;
+	}
+}
+
+@layer components {
+	.project-sizer {
+		@apply w-full md:w-1/2 lg:w-1/3;
+	}
+}
+
+@layer utilities {
+	/* Chrome, Safari and Opera */
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+
+	.no-scrollbar {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+
+	.img-white {
+		filter: invert(0%) sepia(96%) saturate(15%) hue-rotate(249deg)
+			brightness(100%) contrast(105%);
+	}
+}
