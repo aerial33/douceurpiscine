@@ -1,5 +1,11 @@
 {
 	"editor.fontSize": 14,
 	"editor.tabSize": 2,
-	"editor.fontFamily": "'FiraCode Nerd Font','Hack Nerd Font','JetBrains Mono'"
+	"editor.fontFamily": "'FiraCode Nerd Font','Hack Nerd Font','JetBrains Mono'",
+	"prettier.arrowParens": "avoid",
+	"prettier.bracketSameLine": true,
+	"prettier.useTabs": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true
 }
