@@ -6,5 +6,8 @@
 	"editor.formatOnSave": true,
 	"prettier.arrowParens": "avoid",
 	"prettier.bracketSameLine": true,
-	"prettier.useTabs": true
+	"prettier.useTabs": true,
+	"prettier.semi": false,
+	"prettier.jsxSingleQuote": false,
+	"prettier.singleQuote": false
 }
