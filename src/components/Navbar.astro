@@ -11,20 +11,24 @@ import { Icon } from "astro-icon"
 		class="container mx-auto flex flex-wrap items-center justify-between p-4">
 		<a href="/" class="flex items-center">
 			<Icon
-				name="logo-douceur-light"
-				class="mr-3 h-12 md:h-18 lg:h-20"
-				alt="Flowbite Logo"
+				name="logo-color"
+				class="mr-3 h-12 sm:h-18 lg:h-20"
+				alt="Douceur Piscine Logo"
 			/>
 		</a>
-		<div class="flex md:order-2">
-			<Button type="button">CONTACT</Button>
+		<div class="flex lg:order-2">
+			<a
+				href="/contact"
+				class="flex items-center justify-center rounded-full bg-primary px-4 py-2 text-regular text-white transition duration-300 hover:scale-95 focus:outline-none focus:ring-2 focus:ring-accent"
+				>Contact</a
+			>
 			<button
 				id="menu"
 				aria-expanded="false"
 				aria-label="open menu"
-				class="text-gray-500 hover:bg-gray-100 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 ml-3 inline-flex items-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 md:hidden">
+				class="focus:ring-gray-200 ml-3 inline-flex items-center rounded-lg p-2 text-sm text-accent focus:outline-none focus:ring-2 focus:ring-accent lg:hidden">
 				<svg
-					class="h-6 w-6"
+					class="h-8 w-8"
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
 					viewBox="0 0 24 24"
@@ -39,15 +43,15 @@ import { Icon } from "astro-icon"
 		</div>
 		<div
 			role="menubar"
-			class="hidden w-full items-center justify-between md:order-1 lg:flex lg:w-auto">
+			class="hidden w-full animate-slideleft items-center justify-between lg:order-1 lg:flex lg:w-auto">
 			<ul
-				class="dark:border-gray-200 mt-4 flex flex-col rounded-lg border border-stroke/10 bg-whiten p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0"
+				class="mt-4 flex flex-col rounded-lg border border-stroke/10 bg-whiten p-4 font-medium lg:mt-0 lg:flex-row lg:space-x-8 lg:border-0 lg:bg-transparent lg:p-0"
 				id="dropdown">
 				{
 					navData.map(link => (
 						<a
 							href={link.path}
-							class="block rounded py-2 pl-3 pr-4 text-black hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 dark:hover:text-white  md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent"
+							class="hover:text-primary  block rounded py-2  pl-3  pr-4 lg:p-0"
 							data-navlink>
 							{link.name}
 						</a>

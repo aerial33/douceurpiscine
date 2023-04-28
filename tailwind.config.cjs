@@ -117,9 +117,19 @@ module.exports = {
 					'0%, 100%': { transform: 'rotate(360deg)' },
 					'50%': { transform: 'rotate(0deg)' },
 				},
+				slideleft: {
+					'0%': { transform: 'translateX(100px)'},
+					'100%': { transform: 'translateX(0)'},
+				},
+				slideright: {
+					'0%': { transform: 'translateX(0)'},
+					'100%': { transform: 'translateX(100px)'},
+				}
 			},
 			animation: {
 				rotating: 'rotating 30s linear infinite',
+				slideleft: 'slideleft 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both',
+				slideright: 'slideright 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both'
 			},
 		},
 	},
