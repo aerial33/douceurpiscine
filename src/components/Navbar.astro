@@ -1,14 +1,16 @@
 ---
 // Data import
 import navData from "../data/navData"
-import Button from "../components/Button.astro"
 import { Icon } from "astro-icon"
+
+const [contactNav] = navData.slice(-1)
+const navWithoutContact = navData.filter(({ name }) => name !== "Contact")
 ---
 
 <header
-	class="fixed left-0 top-0 z-20 w-full border-b border-stroke/5 bg-white/30 backdrop-blur-sm">
+	class="fixed left-0 top-0 z-20 w-full border-b border-stroke/5 bg-white/30">
 	<div
-		class="container mx-auto flex flex-wrap items-center justify-between p-4">
+		class="mx-auto flex max-w-1390 flex-wrap items-center justify-between p-4 md:px-8 2xl:px-0">
 		<a href="/" class="flex items-center">
 			<Icon
 				name="logo-color"
@@ -18,9 +20,9 @@ import { Icon } from "astro-icon"
 		</a>
 		<div class="flex lg:order-2">
 			<a
-				href="/contact"
+				href={contactNav.path}
 				class="flex items-center justify-center rounded-full bg-primary px-4 py-2 text-regular text-white transition duration-300 hover:scale-95 focus:outline-none focus:ring-2 focus:ring-accent"
-				>Contact</a
+				>{contactNav.name}</a
 			>
 			<button
 				id="menu"
@@ -43,18 +45,48 @@ import { Icon } from "astro-icon"
 		</div>
 		<div
 			role="menubar"
-			class="hidden w-full animate-slideleft items-center justify-between lg:order-1 lg:flex lg:w-auto">
+			class="hidden w-full animate-slideleft items-center justify-between lg:order-1 lg:flex lg:w-auto xl:mr-36">
 			<ul
-				class="mt-4 flex flex-col rounded-lg border border-stroke/10 bg-whiten p-4 font-medium lg:mt-0 lg:flex-row lg:space-x-8 lg:border-0 lg:bg-transparent lg:p-0"
-				id="dropdown">
+				class="mt-4 flex flex-col space-y-8 rounded-lg border border-stroke/10 bg-whiten px-4 py-8 font-medium lg:mt-0 lg:flex-row lg:space-x-8 lg:space-y-0 lg:border-0 lg:bg-transparent lg:p-0"
+				>
 				{
-					navData.map(link => (
-						<a
-							href={link.path}
-							class="hover:text-primary  block rounded py-2  pl-3  pr-4 lg:p-0"
-							data-navlink>
-							{link.name}
-						</a>
+					navWithoutContact.map(navLink => (
+						<li>
+							{navLink.name === "Piscines" ? (
+								<button
+									id="dropdown-btn"
+									role="list"
+									class="text-blacksection hover:text-primary flex items-center ml-3 gap-3 relative">
+									{navLink.name}
+
+									<svg
+										class="fill-body hover:fill-primary h-3 w-3 cursor-pointer"
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 512 512">
+										<path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+									</svg>
+								</button>
+								<ul class="hidden animate-slidetop w-full bg-white mt-2 rounded-lg border overflow-hidden py-2 border-stroke/10 shadow lg:absolute lg:w-1/3 " role="listbox">
+
+									{navLink.dropdownLinks.map(dropLink => (
+									<li class="block px-4 py-2">
+											<a
+									href={dropLink.path}
+									class="hover:text-primary"
+									>{dropLink.name}
+									</a>
+									</li>
+									))}
+								</ul>
+							) : (
+								<a
+									href={navLink.path}
+									class="text-blacksection hover:text-primary  block rounded py-2  pl-3  pr-4 lg:p-0"
+									data-navlink>
+									{navLink.name}
+								</a>
+							)}
+						</li>
 					))
 				}
 				<!-- <li>
@@ -81,14 +113,20 @@ import { Icon } from "astro-icon"
 	const navBtn = document.getElementById("menu")
 	const menuBar = document.querySelector('[role="menubar"]')
 	const header = document.querySelector("header")
+	const dropdownBtn = document.getElementById("dropdown-btn")
+	const dropdown = document.querySelector('[role="listbox"]')
 
 	window.addEventListener("scroll", () => {
 		const isScrolled = window.pageYOffset > 20
-		console.log(isScrolled)
-		header.classList.toggle("bg-black shadow !py-4", !isScrolled)
+		header.classList.toggle("backdrop-blur-sm", isScrolled)
 	})
 
 	navBtn.addEventListener("click", () => {
 		menuBar.classList.toggle("hidden")
+	})
+	dropdownBtn.addEventListener("click", (e) => {
+		// dropdown.classList.toggle("hidden")
+		e.preventDefault();
+		dropdown.classList.toggle("hidden")
 	})
 </script>

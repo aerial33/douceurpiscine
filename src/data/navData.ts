@@ -1,16 +1,25 @@
 type Navlink = {
   name: string;
   path: string;
+  dropdownLinks?: {
+    name: string;
+    path: string;
+  }[];
 };
 
 const navData: Navlink[] = [
   {
     name: "Piscines",
     path: "/piscines/",
+    dropdownLinks: [
+      { name: "Piscine 1", path: "#!" },
+      { name: "Piscine 2", path: "#!" },
+      { name: "Piscine 3", path: "#!" },
+    ],
   },
   {
     name: "Services",
-    path: "/service/",
+    path: "/#service/",
   },
   {
     name: "Réalisation",
@@ -18,7 +27,7 @@ const navData: Navlink[] = [
   },
   {
     name: "Actualités",
-    path: "/actualites/",
+    path: "/#actualites/",
   },
   {
     name: "Contact",

@@ -1,5 +1,5 @@
 import Button from "./Button.astro";
 import Navbar from "./Navbar.astro";
-import Header from "./header.astro";
+import Hero from "./Hero.astro";
 
-export { Button, Navbar, Header };
+export { Button, Navbar, Hero };
