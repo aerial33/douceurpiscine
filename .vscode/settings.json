@@ -2,12 +2,12 @@
 	"editor.fontSize": 14,
 	"editor.tabSize": 2,
 	"editor.fontFamily": "'FiraCode Nerd Font','Hack Nerd Font','JetBrains Mono'",
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
 	"prettier.arrowParens": "avoid",
 	"prettier.bracketSameLine": true,
 	"prettier.useTabs": true,
 	"prettier.semi": false,
 	"prettier.jsxSingleQuote": false,
-	"prettier.singleQuote": false
+	"prettier.singleQuote": false,
+	"prettier.documentSelectors": ["**/*.astro"]
 }
