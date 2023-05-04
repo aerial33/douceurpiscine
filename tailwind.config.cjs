@@ -103,7 +103,7 @@ module.exports = {
 			opacity: {
 				65: '.65',
 			},
-			transitionProperty: { width: 'width' },
+			transitionProperty: { width: 'width', height: 'height' },
 			boxShadow: {
 				1: '0px 10px 25px rgba(78, 107, 255, 0.2)',
 				2: '0px 6px 90px rgba(8, 14, 40, 0.04)',
@@ -138,5 +138,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/aspect-ratio'),],
 }

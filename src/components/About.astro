@@ -1,0 +1,127 @@
+---
+import { Icon } from "astro-icon"
+---
+
+<!-- ===== About Start ===== -->
+<section class="overflow-hidden py-20 lg:py-25 xl:py-30 2xl:py-35">
+	<div class="mx-auto max-w-1390 px-4 md:px-8 xl:px-9">
+		<div
+			class="flex flex-col-reverse items-center justify-between gap-10 xl:flex-row xl:gap-30">
+			<!-- About Images -->
+			<div class="animate_left relative flex w-full justify-around gap-8">
+				<div>
+					<img
+						src="./images/shape/shape-05.svg"
+						alt="Shape"
+						class="absolute -left-5 top-5"
+					/>
+					<img src="./images/about/about-01.png" alt="About" class="mb-8" />
+					<img src="./images/about/about-02.png" alt="About" />
+				</div>
+				<div>
+					<img src="./images/shape/shape-06.svg" alt="Shape" />
+					<img
+						src="./images/about/about-03.png"
+						alt="About"
+						class="mb-5 mt-7.5"
+					/>
+					<img src="./images/shape/shape-07.svg" alt="Shape" class="mx-auto" />
+				</div>
+			</div>
+
+			<!-- About Content -->
+			<div class="animate_right">
+				<h4 class="mb-5 text-xl font-medium text-primary">
+					Pose de piscine en coque polyester Bordeaux
+				</h4>
+				<h2
+					class="mb-7.5 text-3xl font-semibold text-accent dark:text-white lg:text-4xl xl:text-title-xl">
+					Profitez d'une piscine coque facile à installer et à entretenir
+				</h2>
+				<p class="lg:w-[95%]">
+					Douceur Piscine a vu le jour à Saint-Jean-D'illac, près de Bordeaux.
+					Au cœur de cette région ensoleillée entre terre et mer, de plus en
+					plus de personnes se lancent dans des projets piscine.
+				</p>
+				<p class="lg:w-[95%]">
+					Pour s'offrir le privilège de baignades régulières ou pour apporter de
+					la valeur supplémentaire à une résidence à vendre ou à louer : les
+					projets piscine varient.
+				</p>
+				<p class="lg:w-[95%]">
+					Qu'elle soit pour vous et vos proches ou pour de futurs acquéreurs,
+					locataires ou résidents saisonniers, la construction d'une piscine ne
+					se confie pas à n'importe quel pisciniste.
+				</p>
+				<p class="lg:w-[95%]">
+					Nous avons plus de 25 ans d'expérience et nous installons des
+					centaines de bassins chaque année. Nos professionnels savent
+					précisément comment vous accompagner.
+				</p>
+				<p class="lg:w-[95%]">
+					Faire confiance à notre société, c'est bénéficier d'un rigoureux pour
+					la fabrication de votre piscine française et profiter d'une prise en
+					charge complète.
+				</p>
+
+				<a
+					id="modal-about"
+					role="button"
+					class="show-modal mt-10 inline-flex items-center gap-6.5">
+					<span
+						class="relative z-1 flex h-12.5 w-12.5 items-center justify-center rounded-full bg-primary text-white">
+						<span
+							class="absolute -z-1 inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-20"
+						></span>
+						<Icon name="ic:baseline-play-arrow" width="38" alt="Play" />
+					</span>
+					<span class="text-black transition-all hover:text-primary"
+						>Déroulement chantier de piscines</span
+					>
+				</a>
+				<!-- modal start -->
+				<div
+					class="modal close-modal fixed left-0 top-0 z-999 hidden h-screen w-full items-center justify-center bg-black bg-opacity-50">
+					<div class="flex w-3/4 max-w-4xl animate-slidetop flex-col">
+						<div class="flex items-center justify-end pb-3">
+							<button
+								class="close-modal mr-1 rounded bg-black px-3 py-1 text-white">
+								<Icon name="maki:cross" width="24" />
+							</button>
+						</div>
+						<div class="aspect-h-9 aspect-w-16">
+							<!-- <iframe
+								src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2F100057266357158%2Fvideos%2F2795085937436757%2F&show_text=false&width=269&t=0"
+								style="border:none;overflow:hidden"
+								allowfullscreen="true"
+								allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+							></iframe> -->
+							<iframe
+								src="https://www.youtube.com/embed/OrY60z6UVAE"
+								class="rounded-md object-cover shadow-lg"
+								title="YouTube video player"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								allowfullscreen>
+							</iframe>
+						</div>
+					</div>
+				</div>
+				<!-- modal end -->
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ===== About End ===== -->
+
+<script>
+	const modal = document.querySelector(".modal")
+	const showModal = document.querySelector(".show-modal")
+	const closeModal = document.querySelector(".close-modal")
+
+	showModal.addEventListener("click", () =>
+		modal.classList.replace("hidden", "flex")
+	)
+	closeModal.addEventListener("click", () =>
+		modal.classList.replace("flex", "hidden")
+	)
+</script>
