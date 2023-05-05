@@ -1,6 +1,6 @@
 import { z, defineCollection } from "astro:content"
 
-const pool = defineCollection({
+const poolSchema = defineCollection({
 	schema: z.object({
 		name: z.string(),
 		url: z.string().url(),
@@ -27,4 +27,4 @@ const pool = defineCollection({
 	}),
 })
 
-export const collections = { pool }
+export const collections = { pools: poolSchema }
