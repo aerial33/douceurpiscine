@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content"
+import MainLayout from "../../layouts/MainLayout.astro"
+import creatSlug from "../../lib/creatSlug"
+
+export async function getStaticPaths() {
+	const allPools = await getCollection("pools")
+	return allPools.map(pool => ({
+		params: { slug: creatSlug(pool.data.name) },
+		props: pool,
+	}))
+}
+
+const { data, render, id } = Astro.props
+const { Content } = await render()
+console.log(Content)
+---
+
+<MainLayout>
+	<main
+		class="relative mx-auto max-w-1390 px-4 pb-20 pt-35 md:px-8 md:pt-40 lg:pb-30 xl:px-9 xl:pt-52">
+		<h1 class="mb-2 text-2xl font-bold">
+			Page pool {data.name}
+		</h1>
+		<Content />
+	</main>
+</MainLayout>

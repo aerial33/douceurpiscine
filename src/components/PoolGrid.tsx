@@ -1,6 +1,7 @@
 import { CollectionEntry } from "astro:content"
 
 import PoolCard from "./PoolCard"
+import creatSlug from "../lib/creatSlug"
 
 export default function PoolGrid({
 	pools,
@@ -21,7 +22,7 @@ export default function PoolGrid({
 				class="xs:grid-cols-2 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-4">
 				{pools.map(({ data }) => (
 					<li class="card">
-						<a href={`/pools/${data.name}`}>
+						<a href={`/piscines/${creatSlug(data.name)}`}>
 							<PoolCard name={data.name} url={data.url} />
 						</a>
 					</li>
