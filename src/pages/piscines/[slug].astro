@@ -1,0 +1,19 @@
+---
+import { CollectionEntry, getCollection } from "astro:content"
+import MainLayout from "../../layouts/MainLayout.astro"
+import PoolCard from "../../components/PoolCard"
+import creatSlug from "../../lib/creatSlug"
+// import createSlug from "../../lib/creatSlug"
+
+export async function getStaticPaths() {
+	const allPools = await getCollection("pools")
+	return allPools.map(pool => ({
+		params: { slug: creatSlug(pool.data.name) },
+		props: { pool },
+	}))
+}
+
+const { pool } = Astro.props
+---
+
+<h1>{pool.data.name}</h1>
