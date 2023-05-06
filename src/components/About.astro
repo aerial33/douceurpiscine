@@ -118,10 +118,12 @@ import { Icon } from "astro-icon"
 	const showModal = document.querySelector(".show-modal")
 	const closeModal = document.querySelector(".close-modal")
 
-	showModal.addEventListener("click", () =>
-		modal.classList.replace("hidden", "flex")
-	)
-	closeModal.addEventListener("click", () =>
-		modal.classList.replace("flex", "hidden")
-	)
+	if (modal) {
+		showModal.addEventListener("click", () =>
+			modal.classList.replace("hidden", "flex")
+		),
+			closeModal.addEventListener("click", () =>
+				modal.classList.replace("flex", "hidden")
+			)
+	}
 </script>

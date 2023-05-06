@@ -57,11 +57,11 @@ const navWithoutContact = navData.filter(({ name }) => name !== "Contact")
 									href={navLink.path}
 									id="dropdown-btn"
 									role="button"
-									class="text-accent hover:text-primary flex items-center ml-3 gap-3 relative">
+									class="text-accent group hover:text-primary flex items-center ml-3 gap-3 relative">
 									{navLink.name}
 
 									<svg
-										class="fill-body hover:fill-primary h-3 w-3 cursor-pointer"
+										class="fill-body group-hover:fill-primary h-3 w-3 cursor-pointer"
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 512 512">
 										<path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
@@ -111,23 +111,30 @@ const navWithoutContact = navData.filter(({ name }) => name !== "Contact")
 </header>
 
 <script>
-	const navBtn = document.getElementById("menu")
-	const menuBar = document.querySelector('[role="menubar"]')
-	const header = document.querySelector("header")
-	const dropdownBtn = document.getElementById("dropdown-btn")
-	const dropdown = document.querySelector('[role="listbox"]')
-
-	window.addEventListener("scroll", () => {
-		const isScrolled = window.pageYOffset > 20
-		header.classList.toggle("backdrop-blur-lg", isScrolled)
-	})
-
-	navBtn.addEventListener("click", () => {
-		menuBar.classList.toggle("hidden")
-	})
-	dropdownBtn.addEventListener("click", (e) => {
-		// dropdown.classList.toggle("hidden")
-		e.preventDefault();
-		dropdown.classList.toggle("hidden")
-	})
+	document.addEventListener("DOMContentLoaded", () => {
+		const navBtn = document.getElementById("menu")
+		const menuBar = document.querySelector('[role="menubar"]')
+		const header = document.querySelector("header")
+		const dropdownBtn = document.getElementById("dropdown-btn")
+		const dropdown = document.querySelector('[role="listbox"]')
+	
+		window.addEventListener("scroll", () => {
+			const isScrolled = window.pageYOffset > 20
+			header.classList.toggle("backdrop-blur-lg", isScrolled)
+		})
+	
+		navBtn.addEventListener("click", () => {
+			menuBar.classList.toggle("hidden")
+		})
+		dropdownBtn.addEventListener("click", (e) => {
+			// dropdown.classList.toggle("hidden")
+			e.preventDefault();
+			dropdown.classList.toggle("hidden")
+			e.stopPropagation();
+		})
+	
+		document.addEventListener("click", () => {
+			dropdown.classList.add("hidden")
+		})
+});
 </script>
