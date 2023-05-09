@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content"
 import MainLayout from "../../layouts/MainLayout.astro"
 import creatSlug from "../../lib/creatSlug"
+import { Icon } from "astro-icon"
 
 export async function getStaticPaths() {
 	const allPools = await getCollection("pools")
@@ -13,15 +14,159 @@ export async function getStaticPaths() {
 
 const { data, render, id } = Astro.props
 const { Content } = await render()
-console.log(Content)
+
+const dimensions = data.dimension.map(dim => `${dim.long} x  ${dim.larg}`)
 ---
 
 <MainLayout>
-	<main
-		class="relative mx-auto max-w-1390 px-4 pb-20 pt-35 md:px-8 md:pt-40 lg:pb-30 xl:px-9 xl:pt-52">
-		<h1 class="mb-2 text-2xl font-bold">
-			Page pool {data.name}
-		</h1>
-		<Content />
+	<main>
+		<div class="mx-auto max-w-1390 p-4 py-24 pt-30 md:px-8 md:pt-36 2xl:px-0">
+			<div>
+				<div class="flex flex-col pb-5">
+					<div>
+						<a
+							href="/piscines"
+							class="inline-flex items-center rounded-full border border-primary px-4 py-1 text-sm font-medium text-black hover:text-primary">
+							<Icon
+								name="ic:baseline-keyboard-arrow-left"
+								width="24"
+								class="h-5 w-5"
+							/>
+							Retour à la liste
+						</a>
+					</div>
+					<div class="flex flex-wrap items-end justify-between gap-5">
+						<div>
+							<div class="mt-5 flex items-center">
+								<Icon name="shape-03" width="38" class="fill-primary" />
+								<h1 class="ml-3 text-3xl font-bold text-accent sm:text-4xl">
+									{data.name}
+								</h1>
+							</div>
+							<p class="text-lg font-semibold text-primary">{data.tag}</p>
+						</div>
+						<div>
+							<p class="font-medium">Dimensions disponibles</p>
+							{
+								dimensions.map(dimension => (
+									<p class="text-accent mr-2 inline-block rounded-full border  px-2 py-1 text-sm font-medium">
+										{dimension}
+									</p>
+								))
+							}
+						</div>
+						<div>
+							<p class="font-medium">Coloris disponibles</p>
+							<div class="item-center flex gap-1">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 80 65"
+									width="28"
+									height="23"
+									class="rounded shadow-md">
+									<rect fill="#fafafa" x="0" y="0" width="80" height="65"
+									></rect>
+								</svg>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 80 65"
+									width="28"
+									height="23"
+									class="rounded shadow-md">
+									<rect fill="#B3C7E8" x="0" y="0" width="80" height="65"
+									></rect>
+								</svg>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 80 65"
+									width="28"
+									height="23"
+									class="rounded shadow-md">
+									<rect fill="#F0DBB4" x="0" y="0" width="80" height="65"
+									></rect>
+								</svg>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 80 65"
+									width="28"
+									height="23"
+									class="rounded shadow-md">
+									<rect fill="#CFC5C6" x="0" y="0" width="80" height="65"
+									></rect>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="my-7 w-full lg:h-[470px]">
+					<img
+						alt="gallery"
+						class="block h-full w-full rounded-xl object-cover object-center"
+						src={data.url}
+					/>
+				</div>
+				<div
+					class="mt-10 rounded-md border-l-2 border-t border-l-primary border-t-accent p-4 shadow-md">
+					<h2 class="text-3xl font-bold tracking-tight text-accent sm:text-4xl">
+						Description de la piscine {data.name}
+					</h2>
+					<p class="mt-4">
+						{data.description}
+					</p>
+				</div>
+
+				<dl
+					class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+					<div class="border-t border-accent pt-4">
+						<dt class="text-2xl font-medium text-accent">Avantages</dt>
+						<dd class="mt-2 text-sm">
+							- Son côté convivial et sympathique, qui plaira au plus grand
+							nombre <br />
+							- Les marches tout en courbes, originales et confortables Le Safety
+							<br />
+							- Ledge périphérique, assurant solidité et confort à votre piscine
+							coque
+							<br />
+						</dd>
+					</div>
+					<div class="border-t border-accent pt-4">
+						<dt class="text-2xl font-medium text-accent">
+							Equipements disponibles
+						</dt>
+						<dd class="text-gray-500 mt-2 text-sm">
+							- Skimmer : 1<br />
+							- Refoulement : 3<br />
+							- Bonde de fond : 1<br />
+							- Bouchon de prévention : 1<br />
+							- Prise balai : 1<br />
+							- Projecteur LED blanc : 1<br />
+							- Aquaterre + Tresse + Piquet : 1<br />
+						</dd>
+					</div>
+					<div class="border-t border-accent pt-4">
+						<dt class="text-2xl font-medium text-accent">Dimensions</dt>
+						<dd class="mt-2 text-sm">
+							{
+								data.dimension.map(
+									dim =>
+										`Long: ${dim.long} x  Lar: ${dim.larg} x Prof: ${dim.prof} | `
+								)
+							}
+						</dd>
+					</div>
+					<div class="border-t border-accent pt-4">
+						<dt class="text-2xl font-medium text-accent">
+							Spécificités du bassin
+						</dt>
+						<dd class="mt-2 text-sm">
+							- Type de fond : Piscine à fond plat<br />
+							- Volet : Possibilité de mettre un volet hors-sol ou immergé<br />
+							- Escalier : Grand escalier toute largeur<br />
+							- Espace détente : Banquette et bain de soleil une place
+						</dd>
+					</div>
+				</dl>
+			</div>
+		</div>
 	</main>
 </MainLayout>

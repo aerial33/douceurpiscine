@@ -1,6 +1,14 @@
 import { ComponentChildren, JSX } from "preact"
 
-export default function ({ name, url }: { name: string; url: string }) {
+export default function ({
+	name,
+	url,
+	tag,
+}: {
+	name: string
+	url: string
+	tag: string
+}) {
 	return (
 		<div class="group relative flex h-full flex-col overflow-hidden rounded-lg  bg-white  drop-shadow-md">
 			<div class="aspect-h-2  aspect-w-3 flex-1 sm:h-48">
@@ -11,7 +19,7 @@ export default function ({ name, url }: { name: string; url: string }) {
 				/>
 				<div class="absolute left-0 top-0 z-10 flex h-full w-full translate-y-full flex-col items-center justify-start  rounded-lg bg-white/20 backdrop-blur-sm duration-500  ease-linear group-hover:translate-y-1/2 ">
 					<h4 class="mb-0.5 mt-4 text-2xl font-medium text-accent">{name}</h4>
-					<p class="text-body">fond_progressif</p>
+					<p class="text-body">{tag}</p>
 					<a
 						class="group mt-4 flex h-10 w-10 items-center justify-center rounded-full border border-body bg-transparent duration-300 ease-in-out group-hover:border-primary group-hover:bg-primary"
 						href="#">
