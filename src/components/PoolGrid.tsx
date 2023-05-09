@@ -23,7 +23,7 @@ export default function PoolGrid({
 				{pools.map(({ data }) => (
 					<li class="card">
 						<a href={`/piscines/${creatSlug(data.name)}`}>
-							<PoolCard name={data.name} url={data.url} />
+							<PoolCard name={data.name} url={data.url} tag={data.tag} />
 						</a>
 					</li>
 				))}
