@@ -28,9 +28,9 @@ function Carrousel({ slides }: CarousselProps) {
 				<span class="absolute right-0 top-0 block h-1/2 w-1.5 rounded-tr-lg bg-primary"></span>
 				<span class="absolute bottom-0 right-0 block h-1/2 w-1.5 rounded-br-lg bg-secondary"></span>
 
-				<div class="flex flex-col gap-7.5 md:flex-row md:items-center md:justify-between lg:gap-12">
+				<div class=" flex flex-col gap-7.5 md:items-center lg:flex-row lg:justify-between lg:gap-12">
 					<img
-						class="w-1/3 flex-shrink-0 rounded-md duration-500"
+						class="rounded-md bg-cover duration-500 lg:w-1/3"
 						src={slides[currentSlide].photo}
 						alt="User"
 					/>
