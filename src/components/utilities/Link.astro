@@ -6,7 +6,7 @@ import { Icon } from "astro-icon"
 interface Props {
 	text: string
 	href: string
-	style: "primary" | "secondary"
+	isBtnLg?: boolean
 	icon?: {
 		name: string
 		side: "left" | "right"
@@ -14,16 +14,18 @@ interface Props {
 	isFilled?: boolean
 	borderVisible?: boolean
 	classes?: string
+	id?: string
 }
 
 const {
 	text,
 	href,
-	style,
+	isBtnLg,
 	icon,
-	isFilled = true,
+	isFilled = false,
 	borderVisible = false,
 	classes,
+	id,
 	...rest
 }: Props = Astro.props
 ---
@@ -33,9 +35,9 @@ const {
 	class:list={[
 		"link",
 		classes,
-		style,
-		{ filled: isFilled, bordered: borderVisible },
+		{ "btn-lg": isBtnLg, filled: isFilled, bordered: borderVisible },
 	]}
+	id={id}
 	{...rest}>
 	{
 		icon && icon.side === "left" && (

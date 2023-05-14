@@ -1,6 +1,6 @@
-import Button from "./Button.astro"
+import Link from "./Link.astro"
 import Caroussel from "./Caroussel"
 import TitleSection from "./TitleSection.tsx"
 import Forms from "./Forms.astro"
 
-export { Button, TitleSection, Caroussel, Forms }
+export { Link, TitleSection, Caroussel, Forms }
