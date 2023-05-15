@@ -6,6 +6,7 @@ import PoolFeature from "./PoolFeature.astro"
 import PoolTag from "./PoolTag.astro"
 import Testimonials from "./Testimonials.astro"
 import Contact from "./Contact.astro"
+import Footer from "./Footer.astro"
 
 
-export { Navbar, Hero, Feature, About, PoolFeature, PoolTag, Testimonials, Contact }
+export { Navbar, Hero, Feature, About, PoolFeature, PoolTag, Testimonials, Contact, Footer }
