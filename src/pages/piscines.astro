@@ -1,11 +1,19 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro'
+import { getCollection } from "astro:content"
+import MainLayout from "../layouts/MainLayout.astro"
+import PoolGrid from "../components/PoolGrid"
+
+const allPools = await getCollection("pools")
 
 //todo write a description metatag
 ---
 
-<MainLayout title='Pose et vente piscines coques polyester Bordeaux Gironde'>
-	<h1 class='grid place-items-center h-screen content-center'>
-		Piscines 's galleries 🏊‍♀️
-	</h1>
+<MainLayout title="Pose et vente piscines coques polyester Bordeaux Gironde">
+	<main
+		class="container relative mx-auto pb-20 pt-35 md:pt-40 lg:pb-30 xl:pt-52">
+		<h1 class="mb-8 text-center text-3xl font-bold text-accent">
+			Piscines 's galleries 🏊‍♀️
+		</h1>
+		<PoolGrid pools={allPools} />
+	</main>
 </MainLayout>

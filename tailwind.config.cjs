@@ -3,32 +3,36 @@ module.exports = {
 	theme: {
 		fontFamily: {
 			inter: ['Inter', 'sans-serif'],
-			outfit: ['Outfit', 'sans-serif'],
+			roboto: ['Roboto', 'sans-serif'],
+		},
+		colors: {
+		  current: 'currentColor',
+      transparent: 'transparent',
+      white: '#FFFFFF',
+      black: '#181C31',
+      blacksection: '#1C2136',
+      primary: '#CF0B7C',
+      secondary: '#89CDE9',
+      accent: "#00559b",
+      tertary: "#60a5fa",
+      stroke: '#3C4556',
+      strokedark: '#D8E1ED',
+      body: '#79808A',
+      whiter: '#F4F7FA',
+      whiten: '#ECF0F5',
+      'meta-green': '#20CA66',
+      'meta-orange': '#FA9161',
 		},
 		extend: {
-			colors: {
-				primary: '#00040f',
-				secondary: '#F36A8D',
-				current: 'currentColor',
-				transparent: 'transparent',
-				white: '#FFFFFF',
-				black: '#181C31',
-				blacksection: '#1C2136',
-				stroke: '#3C4556',
-				strokedark: '#D8E1ED',
-				body: '#79808A',
-				whiter: '#F4F7FA',
-				whiten: '#ECF0F5',
-				'meta-green': '#20CA66',
-				'meta-orange': '#FA9161',
-			},
-			screens: {
-				xs: '480px',
-				ss: '620px',
-				sm: '768px',
-				md: '1060px',
-				lg: '1200px',
-				xl: '1700px',
+			fontSize: {
+				'title-xxl': ['50px', '62px'],
+				'title-xl': ['45px', '55px'],
+				'title-lg': ['40px', '42px'],
+				'title-lg2': ['32px', '40px'],
+				'title-sm': ['26px', '32px'],
+				'title-xsm': ['22px', '26px'],
+				'title-xsm2': ['19px', '35px'],
+				regular: ['16px', '26px'],
 			},
 			spacing: {
 				4.5: '1.125rem',
@@ -99,7 +103,7 @@ module.exports = {
 			opacity: {
 				65: '.65',
 			},
-			transitionProperty: { width: 'width' },
+			transitionProperty: { width: 'width', height: 'height' },
 			boxShadow: {
 				1: '0px 10px 25px rgba(78, 107, 255, 0.2)',
 				2: '0px 6px 90px rgba(8, 14, 40, 0.04)',
@@ -113,11 +117,26 @@ module.exports = {
 					'0%, 100%': { transform: 'rotate(360deg)' },
 					'50%': { transform: 'rotate(0deg)' },
 				},
+				slideleft: {
+					'0%': { transform: 'translateX(100px)'},
+					'100%': { transform: 'translateX(0)'},
+				},
+				slideright: {
+					'0%': { transform: 'translateX(0)'},
+					'100%': { transform: 'translateX(100px)'},
+				},
+				slidetop: {
+					'0%': { transform: 'translateY(-20px)'},
+					'100%': { transform: 'translateY(0px)'},
+				}
 			},
 			animation: {
 				rotating: 'rotating 30s linear infinite',
+				slideleft: 'slideleft 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both',
+				slideright: 'slideright 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both',
+				slidetop: 'slidetop 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both'
 			},
 		},
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/aspect-ratio'),],
 }

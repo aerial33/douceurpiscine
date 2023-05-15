@@ -1,0 +1,145 @@
+---
+//todo aspect Ratio for images
+//todo code title and put it in this section
+import { getCollection, getEntryBySlug } from "astro:content"
+
+const pools = await getCollection("pools")
+
+const pool1 = await getEntryBySlug("pools", "manhattan")
+const acapulco = await getEntryBySlug("pools", "acapulco")
+const lagoon = await getEntryBySlug("pools", "lagoon")
+const bluePearl = await getEntryBySlug("pools", "lounge")
+---
+
+<section
+	class="overflow-hidden pb-10 pt-20 lg:pb-15 lg:pt-25 xl:pb-20 xl:pt-30">
+	<!-- Section Title Start -->
+
+	<!-- Section Title End -->
+
+	<div class="mx-auto mt-12.5 max-w-1390 px-4 md:px-8 2xl:px-0">
+		<!-- Projects item wrapper -->
+		<div
+			class="xs:grid-cols-2 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+			<!-- Project Item -->
+			<div class="card">
+				<div class="group relative z-1 overflow-hidden rounded-lg">
+					<img src={pool1.data.url} alt="Project" />
+
+					<div
+						class="absolute left-0 top-0 z-10 flex h-full w-full translate-y-full flex-col items-center justify-center rounded-lg bg-white/20 backdrop-blur duration-700 ease-linear group-hover:translate-y-0">
+						<h4 class="mb-0.5 text-2xl font-medium text-accent">
+							{pool1.data.name}
+						</h4>
+						<p class="text-white">{pool1.data.type}</p>
+						<a
+							class="group mt-4 flex h-10 w-10 items-center justify-center rounded-full border border-body bg-transparent duration-300 ease-in-out group-hover:border-primary group-hover:bg-primary"
+							href="#">
+							<svg
+								class="fill-body duration-300 ease-in-out group-hover:fill-white"
+								width="14"
+								height="14"
+								viewBox="0 0 14 14"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z"
+								></path>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Project acapulco -->
+			<div class="card">
+				<div class="group relative z-1 overflow-hidden rounded-lg">
+					<img src={acapulco.data.url} alt={acapulco.data.name} />
+
+					<div
+						class="absolute left-0 top-0 z-10 flex h-full w-full translate-y-full flex-col items-center justify-center rounded-lg bg-white/20 backdrop-blur duration-700 ease-linear group-hover:translate-y-0">
+						<h4 class="mb-0.5 text-2xl font-medium text-accent">
+							{acapulco.data.name}
+						</h4>
+						<p class="text-white">{acapulco.data.tag}</p>
+						<a
+							class="group mt-4 flex h-10 w-10 items-center justify-center rounded-full border border-body bg-transparent duration-300 ease-in-out group-hover:border-primary group-hover:bg-primary"
+							href="#">
+							<svg
+								class="fill-body duration-300 ease-in-out group-hover:fill-white"
+								width="14"
+								height="14"
+								viewBox="0 0 14 14"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z"
+								></path>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Project lagoon -->
+			<div class="card">
+				<div class="group relative z-1 overflow-hidden rounded-lg">
+					<img src={lagoon.data.url} alt={lagoon.data.name} />
+
+					<div
+						class="absolute left-0 top-0 z-10 flex h-full w-full translate-y-full flex-col items-center justify-center rounded-lg bg-white/20 backdrop-blur duration-700 ease-linear group-hover:translate-y-0">
+						<h4 class="mb-0.5 text-2xl font-medium text-accent">
+							{lagoon.data.name}
+						</h4>
+						<p class="text-white">{lagoon.data.tag}</p>
+						<a
+							class="group mt-4 flex h-10 w-10 items-center justify-center rounded-full border border-body bg-transparent duration-300 ease-in-out group-hover:border-primary group-hover:bg-primary"
+							href="#">
+							<svg
+								class="fill-body duration-300 ease-in-out group-hover:fill-white"
+								width="14"
+								height="14"
+								viewBox="0 0 14 14"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z"
+								></path>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Project bluePearl -->
+			<div class="col-span-2 row-span-1">
+				<div class="group relative z-1 overflow-hidden rounded-lg">
+					<img src={bluePearl.data.url} alt={bluePearl.data.name} />
+
+					<div
+						class="absolute left-0 top-0 z-10 flex h-full w-full translate-y-full flex-col items-center justify-center rounded-lg bg-white/20 backdrop-blur duration-700 ease-linear group-hover:translate-y-0">
+						<h4 class="mb-0.5 text-2xl font-medium text-accent">
+							{bluePearl.data.name}
+						</h4>
+						<p class="text-white">{bluePearl.data.tag}</p>
+						<a
+							class="group mt-4 flex h-10 w-10 items-center justify-center rounded-full border border-body bg-transparent duration-300 ease-in-out group-hover:border-primary group-hover:bg-primary"
+							href="#">
+							<svg
+								class="fill-body duration-300 ease-in-out group-hover:fill-white"
+								width="14"
+								height="14"
+								viewBox="0 0 14 14"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z"
+								></path>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

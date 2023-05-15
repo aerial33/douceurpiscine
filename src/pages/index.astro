@@ -1,13 +1,33 @@
 ---
 // Component Imports
-import MainLayout from '../layouts/MainLayout.astro'
-import Button from '../components/Button.astro'
+import MainLayout from "../layouts/MainLayout.astro"
+import {
+	Hero,
+	Feature,
+	About,
+	PoolTag,
+	Testimonials,
+	Footer,
+} from "../components"
 
-const title = 'Installation Piscine coque polyester Bordeaux Gironde 33'
+const title = "Installation Piscine coque polyester Bordeaux Gironde 33"
 ---
 
 <MainLayout title={title}>
-	<div class='grid place-items-center h-screen content-center'>
-		<Button>Welcome to Home page!</Button>
-	</div>
+	<main>
+		<Hero />
+		<!-- ===== Small Features Start ===== -->
+		<Feature />
+		<!-- ===== Small Features End ===== -->
+		<About />
+		<!-- Pool Tag start -->
+		<PoolTag />
+		<!-- Pool Tag End -->
+		<!-- Testimonial start-->
+		<Testimonials />
+		<!-- Testimonial End -->
+		<!-- Footer start -->
+		<Footer />
+		<!-- Footer End -->
+	</main>
 </MainLayout>
