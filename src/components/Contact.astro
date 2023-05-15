@@ -3,7 +3,7 @@ import { Forms, TitleSection } from "./utilities"
 import { Icon } from "astro-icon"
 import { siteParams } from "../data/siteData"
 
-const { name, email, phone, address, horaire } = siteParams
+const { name, email, phone, location, horaire } = siteParams
 ---
 
 <!-- ===== Contact Start ===== -->
@@ -78,7 +78,10 @@ const { name, email, phone, address, horaire } = siteParams
 							{name}
 						</h4>
 						<p>
-							{address}
+							{location.adresse}
+						</p>
+						<p>
+							{location.city}
 						</p>
 					</div>
 					<div class="mb-10 flex gap-2">
