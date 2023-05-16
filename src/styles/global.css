@@ -67,6 +67,32 @@
 			brightness(100%) contrast(105%);
 	}
 
+	.animate_left {
+		transform: translateX(-50%);
+	}
+	.animate_right {
+		transform: translateX(50%);
+	}
+
+	.animate_left,
+	.animate_right {
+		transition: opacity 800ms ease-in, transform 1500ms ease-out;
+		opacity: 0;
+	}
+	.animate_left.appear,
+	.animate_right.appear {
+		transform: translateX(0);
+		opacity: 1;
+	}
+
+	.fade-in {
+		opacity: 0;
+		transition: opacity 1000ms ease-out;
+	}
+	.fade-in.appear {
+		opacity: 1;
+	}
+
 	@media screen and (min-width: 480px) {
 		.card:nth-child(7n + 1) {
 			grid-column: auto/span 2;
