@@ -6,7 +6,7 @@ const TitleSection = ({
 	titleText: string
 }) => {
 	return (
-		<div class="animate_top mx-auto max-w-1390 px-4 text-center md:px-8 xl:px-0">
+		<div class="fade-in mx-auto max-w-1390 px-4 text-center md:px-8 xl:px-0">
 			<h2 class="mx-auto mb-4.5 text-3xl font-semibold text-accent  md:w-4/5 xl:w-1/2 xl:text-title-xl">
 				{title}
 			</h2>

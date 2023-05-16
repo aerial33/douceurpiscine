@@ -1,15 +1,20 @@
 ---
-import MainHead from "./MainHead.astro";
-import "../styles/global.css";
-import { Navbar } from "../components/";
+import MainHead from "./MainHead.astro"
+import "../styles/global.css"
+import { Navbar, Footer } from "../components/"
 
-const { title, description } = Astro.props;
+const { title, description } = Astro.props
 ---
 
 <html lang="en">
-  <MainHead {title} {description} />
-  <body>
-    <Navbar />
-    <slot />
-  </body>
+	<MainHead {title} {description} />
+	<body>
+		<Navbar />
+		<slot />
+		<Footer />
+		<script>
+			import { animateLoading } from "../js/main"
+			animateLoading()
+		</script>
+	</body>
 </html>

@@ -12,14 +12,14 @@ const navData: Navlink[] = [
 		name: "Piscines",
 		path: "/piscines/",
 		dropdownLinks: [
-			{ name: "Piscine 1", path: "/piscines/" },
-			{ name: "Piscine 2", path: "#!" },
-			{ name: "Piscine 3", path: "#!" },
+			{ name: "Notre sélection de piscines", path: "/piscines/" },
+			{ name: "Piscines avec fond plat", path: "#!" },
+			{ name: "Piscines avec fond incliné", path: "#!" },
 		],
 	},
 	{
-		name: "Services",
-		path: "/#service",
+		name: "Installation",
+		path: "/#installation",
 	},
 	{
 		name: "Réalisation",

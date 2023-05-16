@@ -10,6 +10,7 @@ interface Props {
 	icon?: {
 		name: string
 		side: "left" | "right"
+		classeSvg?: string
 	}
 	isFilled?: boolean
 	borderVisible?: boolean
@@ -41,7 +42,12 @@ const {
 	{...rest}>
 	{
 		icon && icon.side === "left" && (
-			<Icon name={icon.name} height="24" width="24" />
+			<Icon
+				name={icon.name}
+				height="24"
+				width="24"
+				class:list={[icon.classeSvg]}
+			/>
 		)
 	}
 
@@ -49,7 +55,12 @@ const {
 
 	{
 		icon && icon.side === "right" && (
-			<Icon name={icon.name} height="24" width="24" />
+			<Icon
+				name={icon.name}
+				height="24"
+				width="24"
+				class:list={[icon.classeSvg]}
+			/>
 		)
 	}
 </a>
