@@ -19,7 +19,7 @@ const navData: Navlink[] = [
 	},
 	{
 		name: "Installation",
-		path: "/#installation",
+		path: "/installation-piscine",
 	},
 	{
 		name: "Réalisation",

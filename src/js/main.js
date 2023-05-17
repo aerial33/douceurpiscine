@@ -1,4 +1,4 @@
-const navElement = () => {
+export const navElement = () => {
 	document.addEventListener("DOMContentLoaded", () => {
 		const navBtn = document.getElementById("menu")
 		const menuBar = document.querySelector('[role="menubar"]')
@@ -34,7 +34,7 @@ const navElement = () => {
 	})
 }
 
-const animateLoading = () =>{
+export const animateLoading = () =>{
 	const sliders = document.querySelectorAll('.slide-in')
 	const faders = document.querySelectorAll(".fade-in")
 
@@ -62,5 +62,3 @@ const animateLoading = () =>{
 		appearOnScroll.observe(slide)
 	})
 }
-
-export { navElement, animateLoading }
