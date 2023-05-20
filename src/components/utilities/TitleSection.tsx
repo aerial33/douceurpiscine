@@ -1,15 +1,24 @@
-interface TitleSection {
+const TITLE_SECTION_CLASS =
+	"fade-in mx-auto max-w-1390 px-4 text-center md:px-8 xl:px-0"
+
+export interface TitleSectionProps {
 	title: string
-	titleText: string
+	titleText?: string
+	headerLevel: "h1" | "h2" | "h3"
 }
 
-const TitleSection = ({ title, titleText }: TitleSection) => {
+const TitleSection = ({
+	title,
+	titleText,
+	headerLevel = "h1",
+}: TitleSectionProps) => {
+	const HeaderLevel = headerLevel
 	return (
-		<div class="fade-in mx-auto max-w-1390 px-4 text-center md:px-8 xl:px-0">
-			<h2 class="mx-auto mb-4.5 text-3xl font-semibold text-accent  md:w-4/5 xl:w-1/2 xl:text-title-xl">
+		<div class={TITLE_SECTION_CLASS}>
+			<HeaderLevel class="title-gradient mx-auto mb-4.5 text-3xl font-semibold md:w-4/5  lg:text-4xl xl:w-1/2 xl:text-title-xl">
 				{title}
-			</h2>
-			<p class="mx-auto md:w-4/5 lg:w-3/5 xl:w-[46%]">{titleText}</p>
+			</HeaderLevel>
+			<p class="mx-auto text-lg md:w-4/5 lg:w-3/5 xl:w-[46%]">{titleText}</p>
 		</div>
 	)
 }

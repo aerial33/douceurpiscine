@@ -17,7 +17,7 @@ module.exports = {
       tertary: "#60a5fa",
       stroke: '#3C4556',
       strokedark: '#D8E1ED',
-      body: '#79808A',
+      body: '#69859f',
       whiter: '#F4F7FA',
       whiten: '#ECF0F5',
       'meta-green': '#20CA66',

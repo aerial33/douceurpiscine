@@ -1,7 +1,7 @@
 ---
-import { TitleSection } from "./utilities"
+import TitleSection, { TitleSectionProps } from "./utilities/TitleSection"
 
-const { title, titleText } = Astro.props as TitleSection
+const { title, titleText, headerLevel } = Astro.props as TitleSectionProps
 ---
 
 <!-- Bg Shapes -->
@@ -44,7 +44,7 @@ const { title, titleText } = Astro.props as TitleSection
 
 <!-- Section Title Start -->
 <div class="z-1 pt-20">
-	<TitleSection title={title} titleText={titleText} />
+	<TitleSection title={title} titleText={titleText} headerLevel={headerLevel} />
 
 	<!-- Section Title End -->
 </div>
