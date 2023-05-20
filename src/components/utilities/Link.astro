@@ -16,6 +16,7 @@ interface Props {
 	borderVisible?: boolean
 	classes?: string
 	id?: string
+	target?: string
 }
 
 const {
@@ -27,8 +28,9 @@ const {
 	borderVisible = false,
 	classes,
 	id,
+	target,
 	...rest
-}: Props = Astro.props
+} = Astro.props as Props
 ---
 
 <a

@@ -30,9 +30,6 @@
 	h6 {
 		@apply font-roboto;
 	}
-	.title-gradient {
-		@apply bg-gradient-to-tr from-accent to-tertary bg-clip-text text-transparent;
-	}
 }
 
 [aria-current="page"] {
@@ -71,6 +68,10 @@
 	.img-white {
 		filter: invert(0%) sepia(96%) saturate(15%) hue-rotate(249deg)
 			brightness(100%) contrast(105%);
+	}
+
+	.text-gradient {
+		@apply bg-gradient-to-tr from-accent to-tertary bg-clip-text text-transparent;
 	}
 
 	.animate_left {
