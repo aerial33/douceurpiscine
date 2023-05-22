@@ -12,7 +12,7 @@ const titleText =
 <MainLayout>
 	<main class="relative overflow-hidden pt-15 lg:pt-20 xl:pt-25">
 		<HeaderPage title={title} titleText={titleText} />
-		<section class="py-16">
+		<section class="pb-16 pt-24">
 			<div class="mx-auto max-w-7xl px-4 sm:px-6 md:mt-12.5">
 				<div
 					class="grid grid-cols-1 items-center gap-x-16 gap-y-8 lg:grid-cols-2 xl:gap-x-24">
@@ -32,7 +32,7 @@ const titleText =
 								<div class="px-10 py-6">
 									<div class="flex items-center">
 										<p
-											class="text-center font-roboto text-sm font-medium text-accent sm:text-lg">
+											class="text-center font-roboto text-sm font-medium text-primary sm:text-lg">
 											Piscines élégantes et durables pour un plaisir sans fin
 										</p>
 									</div>
@@ -44,16 +44,16 @@ const titleText =
 					<div class="place-self-start">
 						<h2
 							class="text-gradient text-3xl font-bold leading-tight sm:text-4xl lg:leading-tight">
-							Modèle de piscine “prête à plonger”
+							Piscine “prête à plonger”
 						</h2>
-						<p class="mt-6 text-lg leading-relaxed">
+						<p class="mt-6 leading-relaxed">
 							Installateurs de piscines monocoques depuis plus de 25 ans, nos
 							techniciens s’adaptent à toutes les difficultés (terrain en pente,
 							accès difficile). Nous assurons :
 						</p>
 						<ul>
 							<li>
-								- Préparation du sol : terrassement et nivellement du radier en
+								- Préparation du sol: terrassement et nivellement du radier en
 								graviers
 							</li>
 							<li>
@@ -61,12 +61,12 @@ const titleText =
 								votre choix grâce à nos camions-grues
 							</li>
 							<li>
-								- Mise en place des équipements techniques : bonde de fond,
+								- Mise en place des équipements techniques: bonde de fond,
 								skimmer, pompe et local technique
 							</li>
 							<li>- Fourniture d'accessoires pour la piscine</li>
 						</ul>
-						<p>
+						<p class="leading-relaxed">
 							Pour les finitions, choisissez parmi: un dallage de piscine
 							spécifique (margelles) en carrelage, un revêtement pierre, des
 							lames de bois ou en composite.
@@ -95,26 +95,26 @@ const titleText =
 					<div>
 						<h2
 							class="text-gradient text-3xl font-bold leading-tight sm:text-4xl lg:leading-tight">
-							Bricoleurs autonomes ? <br /> La Formule de piscine en Kit
+							Bricoleurs autonomes ? <br />Piscine en Kit
 						</h2>
-						<p class="mt-4">Une construction de piscine économique.</p>
-						<p class="leading-relaxed">
+						<p class="text-primary">Une construction de piscine économique.</p>
+						<p class="mt-4 leading-relaxed">
 							Certains modèles de piscine peuvent être installé à partir d’un
 							kit, sans l’intervention de nos piscinistes experts. Il s’agit
 							notamment des petits bassins rectangulaires à fond plat, ainsi que
 							des nouvelles piscines shooter, piscines avec moquette de détente,
 							escaliers latéraux de chaque côté et bloc filtrant.
 						</p>
-						<p>
+						<p class="leading-relaxed">
 							L’installation est simple et rapide et séduira tous les amateurs
 							de bricolage et du “do it yourself” (faites-le vous-même).
 						</p>
-						<p>
+						<p class="leading-relaxed">
 							Comme pour la formule de piscine “prête au bain“, cette formule en
 							kit comprend l’équipement de filtration, les buses de refoulement,
 							etc…
 						</p>
-						<p>
+						<p class="leading-relaxed">
 							Il existe aussi la formule d’installation semi-kit qui comprend la
 							livraison jusqu’à la mise en service.
 						</p>
@@ -155,26 +155,26 @@ const titleText =
 		</section>
 
 		<!-- third section -->
-		<section class="bg-gray-50 py-10 sm:py-16 lg:py-24">
+		<section class="py-16 lg:py-24">
 			<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-				<div class="grid items-stretch gap-y-10 md:grid-cols-2 md:gap-x-20">
+				<div class="grid items-stretch gap-y-10 lg:grid-cols-2 lg:gap-x-10">
 					<div
-						class="relative mt-10 grid grid-cols-1 gap-6 md:mt-0 md:grid-cols-2">
+						class="relative order-last mt-10 grid grid-cols-1 gap-6 lg:order-first lg:mt-0 lg:grid-cols-2">
 						<div
-							class="aspect-h-9 aspect-w-16 overflow-hidden rounded-lg md:aspect-h-4 md:aspect-w-3">
+							class="aspect-h-9 aspect-w-16 overflow-hidden rounded-lg lg:aspect-h-4 lg:aspect-w-3">
 							<img
-								class="origin-top scale-150 object-cover object-top"
-								src="https://cdn.rareblocks.xyz/collection/celebration/images/features/2/team-work.jpg"
+								class="object-cover"
+								src="/images/piscine-chantier-finish.jpeg"
 								alt=""
 							/>
 						</div>
 
-						<div class="relative">
+						<div class="relative order-first lg:order-last">
 							<div
-								class="aspect-h-9 aspect-w-16 h-full overflow-hidden rounded-lg md:aspect-h-4 md:aspect-w-3">
+								class="aspect-h-9 aspect-w-16 h-full overflow-hidden rounded-lg lg:aspect-h-4 lg:aspect-w-3">
 								<img
-									class="w-full scale-150 object-cover lg:origin-bottom-right"
-									src="https://cdn.rareblocks.xyz/collection/celebration/images/features/2/woman-working-on-laptop.jpg"
+									class="w-full object-cover object-left-bottom"
+									src="/images/chantier-piscine.jpeg"
 									alt=""
 								/>
 							</div>
@@ -183,60 +183,161 @@ const titleText =
 								class="absolute inset-0 grid h-full w-full place-items-center">
 								<button
 									type="button"
-									class="text-blue-600 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md lg:h-20 lg:w-20">
-									<svg
-										class="h-6 w-6 lg:h-8 lg:w-8"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24"
-										fill="currentColor">
-										<path
-											d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
-										></path>
-									</svg>
+									class="show-modal inline-flex items-center gap-6.5">
+									<span
+										class="relative z-1 flex h-12.5 w-12.5 items-center justify-center rounded-full bg-primary text-white">
+										<span
+											class="absolute -z-1 inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-50"
+										></span>
+										<Icon name="ic:baseline-play-arrow" width="38" alt="Play" />
+									</span>
 								</button>
+								<!-- modal start -->
+								<div
+									class="modal close-modal fixed left-0 top-0 z-999 hidden h-screen w-full items-center justify-center bg-black bg-opacity-50">
+									<div class="flex w-3/4 max-w-4xl animate-slidetop flex-col">
+										<div class="flex items-center justify-end pb-3">
+											<button
+												class="close-modal mr-1 rounded bg-black px-3 py-1 text-white">
+												<Icon name="maki:cross" width="24" />
+											</button>
+										</div>
+										<div
+											class="aspect-h-9 aspect-w-16 rounded-lg border border-black">
+											<iframe
+												src="https://www.youtube.com/embed/OrY60z6UVAE"
+												class="rounded-lg shadow-lg"
+												title="YouTube video player"
+												allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+												allowfullscreen>
+											</iframe>
+										</div>
+									</div>
+								</div>
+								<!-- modal end -->
 							</div>
-						</div>
-
-						<div class="absolute -top-16 left-1/2 -translate-x-1/2">
-							<img
-								class="h-32 w-32"
-								src="https://cdn.rareblocks.xyz/collection/celebration/images/features/2/round-text.png"
-								alt=""
-							/>
 						</div>
 					</div>
 
-					<div class="flex flex-col items-start xl:px-16">
+					<div class="flex flex-col items-start">
 						<h2
 							class="text-gradient text-3xl font-bold leading-tight sm:text-4xl lg:leading-tight">
-							Bricoleurs autonomes ? La Formule de piscine en Kit
+							Processus d'installation de piscine : <br /> étapes clés avec Douceur
+							Piscine
 						</h2>
-						<p class="mt-4">Une construction de piscine économique.</p>
-						<p class="leading-relaxed">
-							Certains modèles de piscine peuvent être installé à partir d’un
-							kit, sans l’intervention de nos piscinistes experts. Il s’agit
-							notamment des petits bassins rectangulaires à fond plat, ainsi que
-							des nouvelles piscines shooter, piscines avec moquette de détente,
-							escaliers latéraux de chaque côté et bloc filtrant.
+						<p class="text-primary">
+							Nos équipes prennent en charge l’installation complète de votre
+							piscine
 						</p>
+						<p class="mt-4 leading-relaxed">
+							Notre entreprise Douceur Piscine se charge de l'installation
+							complète de votre piscine dans la région de Bordeaux et du bassin
+							d'Arcachon (33). Le déroulement du chantier se divise en plusieurs
+							étapes :
+						</p>
+						<ul>
+							<li>- Préparation du terrain pour une installation optimale</li>
+							<li>
+								- Travaux de plomberie et d'électricité pour une utilisation
+								sécurisée
+							</li>
+							<li>
+								- Construction de la piscine, que ce soit une piscine coque ou
+								piscine creusée en béton
+							</li>
+							<li>
+								- Installation du revêtement extérieur pour une finition
+								esthétique
+							</li>
+							<li>- Remplissage en eau pour une mise en service rapide</li>
+							<li>
+								- Installation des équipements annexes tels que les pompes,
+								filtres et chauffages pour un confort optimal
+							</li>
+						</ul>
+						<p class="mt-4 leading-relaxed">
+							Chez Douceur Piscine, nous mettons tout en œuvre pour que votre
+							projet de piscine soit une réussite, de l'installation à
+							l'entretien.
+						</p>
+						<p>
+							Besoin d'informations sur nos installations de piscines ?
+							<Link
+								href="contact"
+								text="Contactez-nous"
+								classes="mt-4 group text-lg"
+								icon={{
+									name: "ph:caret-right-light",
+									side: "right",
+									classeSvg: "transition-all group-hover:translate-x-1",
+								}}
+							/>
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-						<a
-							href="#"
-							title=""
-							class="from-fuchsia-600 to-blue-600 mt-8 inline-flex items-center justify-center rounded-md bg-gradient-to-r px-5 py-4 text-base font-semibold text-white transition-all duration-200 hover:opacity-90 focus:opacity-90 lg:mt-auto"
-							role="button">
-							Get started now
-							<svg
-								class="-mr-1 ml-8 h-5 w-5"
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 20 20"
-								fill="currentColor">
-								<path
-									fill-rule="evenodd"
-									d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-									clip-rule="evenodd"></path>
-							</svg>
-						</a>
+		<!-- fourth section  -->
+		<section class="pb-32 pt-16">
+			<div class="mx-auto max-w-7xl px-4 sm:px-6 md:mt-12.5">
+				<div
+					class="grid grid-cols-1 items-center gap-x-16 gap-y-8 lg:grid-cols-2 xl:gap-x-24">
+					<div class="relative order-last md:mb-12">
+						<div class="aspect-h-2 aspect-w-3 md:aspect-h-9 md:aspect-w-16">
+							<img
+								class="w-full rounded-lg object-cover object-top"
+								src="/images/grutage-piscine.jpeg"
+								alt=""
+							/>
+						</div>
+
+						<div
+							class="absolute -bottom-17 left-1/2 w-full max-w-xs -translate-x-1/2 px-4 sm:max-w-sm sm:px-0 md:-bottom-20">
+							<div class="overflow-hidden rounded bg-white">
+								<div class="px-10 py-6">
+									<div class="flex items-center">
+										<p
+											class="text-center font-roboto text-sm font-medium text-primary sm:text-lg">
+											Nous accédons aux travaux dans des zones compliquées à
+											l’aide de grues.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="place-self-start">
+						<h2
+							class="text-gradient text-3xl font-bold leading-tight sm:text-4xl lg:leading-tight">
+							Un accès compliqué ? <br />
+							Nous nous occupons du grutage de votre piscine
+						</h2>
+						<p class="mt-6 leading-relaxed">
+							L’installation de votre piscine peut parfois être retardée par une
+							localisation difficile d’accès. Nous procéderons à un grutage afin
+							d’accéder aux travaux quel que soit l’espace où ils sont situés.
+						</p>
+						<p>
+							Le grutage est une pratique qui utilise une grue pour soulever des
+							machines ou des matériaux lourds et les déplacer à un endroit
+							spécifique, souvent difficile d’accès.
+						</p>
+						<p>
+							Le grutage est souvent la seule option pour installer une piscine
+							dans un espace restreint ou isolé.
+						</p>
+						<Link
+							href="/contact"
+							text="Des questions sur l’accessibilité de votre lieu"
+							classes="mt-2 group text-lg"
+							icon={{
+								name: "ph:caret-right-light",
+								side: "right",
+								classeSvg: "transition-all group-hover:translate-x-0.5",
+							}}
+						/>
 					</div>
 				</div>
 			</div>
