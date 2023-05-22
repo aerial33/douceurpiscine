@@ -1,10 +1,11 @@
 ---
-import { getCollection } from "astro:content"
+import { getEntryBySlug } from "astro:content"
 import { HeaderPage } from "../components"
+import { Icon } from "astro-icon"
 import MainLayout from "../layouts/MainLayout.astro"
-import PoolGrid from "../components/PoolGrid"
 
-const allPools = await getCollection("pools")
+const manhattan = await getEntryBySlug("pools", "manhattan")
+const lagoon = await getEntryBySlug("pools", "lagoon")
 
 const title =
 	"Explorez nos piscines coque aux formes, tailles et styles variés pour des moments inoubliables."
@@ -39,7 +40,87 @@ const titleText =
 					vous conviennent le mieux (Virgin, Tropical, Paradise)
 				</p>
 			</div>
-			<PoolGrid pools={allPools} />
+			<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+				<!-- Pool Fond Plat -->
+				<div class="animate_top text-center">
+					<div
+						class="group relative z-1 overflow-hidden rounded-xl bg-gradient-to-t from-black/50 to-black/10">
+						<img
+							class="w-full mix-blend-overlay"
+							src={manhattan.data.url}
+							alt="Team"
+						/>
+						<h4
+							class="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center text-xl text-whiter md:text-title-sm">
+							Piscines Fond Plat
+						</h4>
+
+						<div
+							class="translate-y-25 duration-300 ease-linear group-hover:translate-y-0">
+							<span
+								class="absolute -bottom-21 -left-5 z-20 block h-37.5 w-[120%] rotate-6 bg-primary"
+							></span>
+							<span
+								class="absolute bottom-0 left-0 z-10 block h-17 w-full bg-secondary"
+							></span>
+							<div class="absolute bottom-0 left-0 z-30 w-full pb-5 pt-7.5">
+								<div class="group/item flex items-center justify-center">
+									<a
+										href="/modeles-piscines/piscine-a-fond-plat"
+										class="font-semibold text-whiter duration-300 ease-in-out group-hover/item:text-secondary">
+										Découvrir
+									</a>
+									<Icon
+										name="ic:baseline-keyboard-arrow-right"
+										width="24"
+										class="text-white duration-300 ease-in-out group-hover/item:translate-x-0.5 group-hover/item:text-secondary"
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Pool Fond Incliné  -->
+				<div class="animate_top text-center">
+					<div
+						class="group relative z-1 overflow-hidden rounded-xl bg-gradient-to-t from-black/50 to-black/10">
+						<img
+							class="h-full w-full rounded-xl mix-blend-overlay"
+							src={lagoon.data.url}
+							alt="Team"
+						/>
+						<h4
+							class="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center text-xl text-whiter md:text-title-sm">
+							Piscines Fond Incliné
+						</h4>
+
+						<div
+							class="translate-y-25 duration-300 ease-linear group-hover:translate-y-0">
+							<span
+								class="absolute -bottom-21 -left-5 z-20 block h-37.5 w-[120%] rotate-6 bg-primary"
+							></span>
+							<span
+								class="absolute bottom-0 left-0 z-10 block h-17 w-full bg-secondary"
+							></span>
+							<div class="absolute bottom-0 left-0 z-30 w-full pb-5 pt-7.5">
+								<div class="group/item flex items-center justify-center">
+									<a
+										href="/modeles-piscines/piscine-a-fond-incline"
+										class="font-semibold text-whiter duration-300 ease-in-out group-hover/item:text-secondary">
+										Découvrir
+									</a>
+									<Icon
+										name="ic:baseline-keyboard-arrow-right"
+										width="24"
+										class="text-white duration-300 ease-in-out group-hover/item:translate-x-0.5 group-hover/item:text-secondary"
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 	</main>
 </MainLayout>

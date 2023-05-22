@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content"
+import { HeaderPage } from "../../components"
+import MainLayout from "../../layouts/MainLayout.astro"
+import PoolGrid from "../../components/PoolGrid"
+
+const allPools = await getCollection("pools")
+// console.log(allPools)
+const inclinedPool = allPools.filter(
+	({ data }) => data.tag === "fond progressif"
+)
+
+const title = "Piscines à fond incliné"
+const titleText =
+	"La piscine à fond incliné, ou piscine à fond progressif, est une piscine qui possède une profondeur variable, en pente douce."
+//todo write a description metatag
+---
+
+<MainLayout title="Pose et vente piscines coques polyester Bordeaux Gironde">
+	<main class="relative overflow-hidden pt-15 lg:pt-20 xl:pt-25">
+		<HeaderPage title={title} titleText={titleText} />
+		<section
+			class="relative z-10 mx-auto my-12.5 max-w-7xl px-4 md:px-8 lg:mt-20 xl:px-9">
+			<div class="mb-12 py-7">
+				<h2
+					class="text-gradient mx-auto text-center text-2xl font-bold leading-tight md:w-4/5 lg:w-2/3 lg:text-4xl lg:leading-tight">
+					Les piscines coque pour entrer dans l'eau tout en douceur !
+				</h2>
+				<p class="mx-auto mt-6 w-1/2 text-center leading-relaxed lg:text-lg">
+					Les piscines à fond incliné, ou piscines à fond progressif, sont des
+					piscines conçues avec une profondeur variable, en pente douce. Plus ou
+					moins incliné, ce type de fond présente de nombreux atouts, le
+					principal étant de pouvoir entrer tout en douceur dans votre bassin :
+					idéal pour les plus frileux !
+				</p>
+			</div>
+			<PoolGrid pools={inclinedPool} />
+		</section>
+	</main>
+</MainLayout>

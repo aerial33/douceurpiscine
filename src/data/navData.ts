@@ -13,8 +13,14 @@ const navData: Navlink[] = [
 		path: "/piscines/",
 		dropdownLinks: [
 			{ name: "Notre sélection de piscines", path: "/piscines/" },
-			{ name: "Piscines avec fond plat", path: "#!" },
-			{ name: "Piscines avec fond incliné", path: "#!" },
+			{
+				name: "Piscines avec fond plat",
+				path: "/modeles-piscines/piscine-a-fond-plat",
+			},
+			{
+				name: "Piscines avec fond incliné",
+				path: "/modeles-piscines/piscine-a-fond-incline",
+			},
 		],
 	},
 	{

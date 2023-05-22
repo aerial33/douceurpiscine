@@ -22,7 +22,7 @@ export default function PoolGrid({
 				class="xs:grid-cols-2 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-4">
 				{pools.map(({ data }) => (
 					<li class="card">
-						<a href={`/piscines/${creatSlug(data.name)}`}>
+						<a href={`/modeles-piscines/${creatSlug(data.name)}`}>
 							<PoolCard name={data.name} url={data.url} tag={data.tag} />
 						</a>
 					</li>
@@ -41,20 +41,16 @@ export default function PoolGrid({
 						<circle cx="15.493" cy="10.493" r="1.493"></circle>
 						<path d="M12 14c-3 0-4 3-4 3h8s-1-3-4-3z"></path>
 					</svg>
-					<span>No Pool was found, try these queries:</span>
+					<span>Aucune piscine n'a été trouvée, essayez ces requêtes :</span>
 					<ul class="flex list-none items-center gap-2 p-0">
-						<li class="rounded-md bg-[#2A325E30] p-1 text-sm font-bold">Bun</li>
 						<li class="rounded-md bg-[#2A325E30] p-1 text-sm font-bold">
-							Node
+							Piscines à fond plat
 						</li>
 						<li class="rounded-md bg-[#2A325E30] p-1 text-sm font-bold">
-							Fresh
+							Piscines à fond inclinée
 						</li>
 						<li class="rounded-md bg-[#2A325E30] p-1 text-sm font-bold">
-							Astro
-						</li>
-						<li class="rounded-md bg-[#2A325E30] p-1 text-sm font-bold">
-							Remix
+							Petit bassin
 						</li>
 					</ul>
 				</div>
