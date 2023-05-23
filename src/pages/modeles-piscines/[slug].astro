@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content"
+import { Forms } from "../../components/utilities"
 import MainLayout from "../../layouts/MainLayout.astro"
 import creatSlug from "../../lib/creatSlug"
 import { Icon } from "astro-icon"
@@ -16,157 +17,221 @@ const { data, render, id } = Astro.props
 const { Content } = await render()
 
 const dimensions = data.dimension.map(dim => `${dim.long} x  ${dim.larg}`)
+const formSugestion = `
+Bonjour,
+Je suis intéressé(e) par la Piscine ${data.name} et j'aimerais en savoir plus sur ce produit. Pourriez-vous me fournir des informations détaillées sur les caractéristiques de cette piscine, ainsi que sur les options de personnalisation disponibles ? J'aimerais également connaître les tarifs et les délais de livraison pour ce produit.
+Si possible, pourriez-vous me contacter par téléphone ou par e-mail pour discuter de ma demande plus en détail ? 
+Je vous remercie par avance pour votre réponse.
+Cordialement.
+`
 ---
 
 <MainLayout>
 	<main>
-		<div class="mx-auto max-w-1390 p-4 py-24 pt-30 md:px-8 md:pt-36 2xl:px-0">
-			<div>
-				<div class="flex flex-col pb-5">
+		<section
+			class="mx-auto max-w-7xl p-4 py-24 pt-30 md:px-8 md:py-36 2xl:px-0">
+			<!-- start header pool slug -->
+			<div class="flex flex-col pb-5">
+				<div>
+					<a
+						href=""
+						role="button"
+						class="return inline-flex items-center rounded-full border border-primary px-4 py-1 text-sm font-medium text-black hover:text-primary">
+						<Icon
+							name="ic:baseline-keyboard-arrow-left"
+							width="24"
+							class="h-5 w-5"
+						/>
+						Retour à la liste
+					</a>
+				</div>
+				<div class="flex flex-wrap items-end justify-between gap-5">
 					<div>
-						<a
-							href="/piscines"
-							class="inline-flex items-center rounded-full border border-primary px-4 py-1 text-sm font-medium text-black hover:text-primary">
-							<Icon
-								name="ic:baseline-keyboard-arrow-left"
-								width="24"
-								class="h-5 w-5"
-							/>
-							Retour à la liste
-						</a>
+						<div class="mt-5 flex items-center">
+							<Icon name="shape-03" width="32" class="fill-secondary" />
+							<h1 class="text-gradient ml-3 text-3xl font-bold sm:text-4xl">
+								{data.name}
+							</h1>
+						</div>
+						<p class="mt-2 text-lg font-semibold">{data.tag}</p>
 					</div>
-					<div class="flex flex-wrap items-end justify-between gap-5">
-						<div>
-							<div class="mt-5 flex items-center">
-								<Icon name="shape-03" width="38" class="fill-primary" />
-								<h1 class="ml-3 text-3xl font-bold text-accent sm:text-4xl">
-									{data.name}
-								</h1>
-							</div>
-							<p class="text-lg font-semibold text-primary">{data.tag}</p>
-						</div>
-						<div>
-							<p class="font-medium">Dimensions disponibles</p>
-							{
-								dimensions.map(dimension => (
-									<p class="text-accent mr-2 inline-block rounded-full border  px-2 py-1 text-sm font-medium">
-										{dimension}
-									</p>
-								))
-							}
-						</div>
-						<div>
-							<p class="font-medium">Coloris disponibles</p>
-							<div class="item-center flex gap-1">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 80 65"
-									width="28"
-									height="23"
-									class="rounded shadow-md">
-									<rect fill="#fafafa" x="0" y="0" width="80" height="65"
-									></rect>
-								</svg>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 80 65"
-									width="28"
-									height="23"
-									class="rounded shadow-md">
-									<rect fill="#B3C7E8" x="0" y="0" width="80" height="65"
-									></rect>
-								</svg>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 80 65"
-									width="28"
-									height="23"
-									class="rounded shadow-md">
-									<rect fill="#F0DBB4" x="0" y="0" width="80" height="65"
-									></rect>
-								</svg>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 80 65"
-									width="28"
-									height="23"
-									class="rounded shadow-md">
-									<rect fill="#CFC5C6" x="0" y="0" width="80" height="65"
-									></rect>
-								</svg>
-							</div>
+					<div>
+						<p class="font-medium">Dimensions disponibles</p>
+						{
+							dimensions.map(dimension => (
+								<p class="mr-2 inline-block rounded-full border border-primary px-2  py-1 text-sm font-medium text-accent">
+									{dimension}
+								</p>
+							))
+						}
+					</div>
+					<div>
+						<p class="font-medium">Coloris disponibles</p>
+						<div class="item-center flex justify-center gap-1">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 80 65"
+								width="28"
+								height="23"
+								class="rounded shadow-md">
+								<rect fill="#fafafa" x="0" y="0" width="80" height="65"></rect>
+							</svg>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 80 65"
+								width="28"
+								height="23"
+								class="rounded shadow-md">
+								<rect fill="#B3C7E8" x="0" y="0" width="80" height="65"></rect>
+							</svg>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 80 65"
+								width="28"
+								height="23"
+								class="rounded shadow-md">
+								<rect fill="#F0DBB4" x="0" y="0" width="80" height="65"></rect>
+							</svg>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 80 65"
+								width="28"
+								height="23"
+								class="rounded shadow-md">
+								<rect fill="#CFC5C6" x="0" y="0" width="80" height="65"></rect>
+							</svg>
 						</div>
 					</div>
 				</div>
-				<div class="my-7 w-full lg:h-[470px]">
-					<img
-						alt="gallery"
-						class="block h-full w-full rounded-xl object-cover object-center"
-						src={data.url}
-					/>
-				</div>
-				<div
-					class="mt-10 rounded-md border-l-2 border-t border-l-primary border-t-accent p-4 shadow-md">
-					<h2 class="text-3xl font-bold tracking-tight text-accent sm:text-4xl">
-						Description de la piscine {data.name}
-					</h2>
-					<p class="mt-4">
-						{data.description}
-					</p>
-				</div>
-
-				<dl
-					class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-					<div class="border-t border-accent pt-4">
-						<dt class="text-2xl font-medium text-accent">Avantages</dt>
-						<dd class="mt-2 text-sm">
-							- Son côté convivial et sympathique, qui plaira au plus grand
-							nombre <br />
-							- Les marches tout en courbes, originales et confortables Le Safety
-							<br />
-							- Ledge périphérique, assurant solidité et confort à votre piscine
-							coque
-							<br />
-						</dd>
-					</div>
-					<div class="border-t border-accent pt-4">
-						<dt class="text-2xl font-medium text-accent">
-							Equipements disponibles
-						</dt>
-						<dd class="text-gray-500 mt-2 text-sm">
-							- Skimmer : 1<br />
-							- Refoulement : 3<br />
-							- Bonde de fond : 1<br />
-							- Bouchon de prévention : 1<br />
-							- Prise balai : 1<br />
-							- Projecteur LED blanc : 1<br />
-							- Aquaterre + Tresse + Piquet : 1<br />
-						</dd>
-					</div>
-					<div class="border-t border-accent pt-4">
-						<dt class="text-2xl font-medium text-accent">Dimensions</dt>
-						<dd class="mt-2 text-sm">
-							{
-								data.dimension.map(
-									dim =>
-										`Long: ${dim.long} x  Lar: ${dim.larg} x Prof: ${dim.prof} | `
-								)
-							}
-						</dd>
-					</div>
-					<div class="border-t border-accent pt-4">
-						<dt class="text-2xl font-medium text-accent">
-							Spécificités du bassin
-						</dt>
-						<dd class="mt-2 text-sm">
-							- Type de fond : Piscine à fond plat<br />
-							- Volet : Possibilité de mettre un volet hors-sol ou immergé<br />
-							- Escalier : Grand escalier toute largeur<br />
-							- Espace détente : Banquette et bain de soleil une place
-						</dd>
-					</div>
-				</dl>
 			</div>
-		</div>
+			<!-- end header pool slug -->
+			<!-- start caroussel  -->
+			<div
+				class="aspect-h-2 aspect-w-3 my-7 w-full sm:aspect-h-9 sm:aspect-w-16">
+				<img
+					alt=`gallerie piscine ${data.name}`
+					class="block w-full rounded-2xl object-cover shadow"
+					src={data.url}
+				/>
+			</div>
+			<!-- end caroussel  -->
+			<!-- start description -->
+			<div
+				class="relative mt-10 rounded-xl px-4 py-9 shadow md:px-12.5 lg:px-17.5 lg:py-16">
+				<!-- Bg Border -->
+				<span
+					class="absolute left-0 top-0 block h-1.5 w-1/2 rounded-tl-lg bg-primary"
+				></span>
+				<span
+					class="absolute right-0 top-0 block h-1.5 w-1/2 rounded-tr-lg bg-secondary"
+				></span>
+				<h2 class="text-gradient text-3xl font-bold tracking-tight sm:text-4xl">
+					La Piscine : {data.name}
+				</h2>
+				<p class="mt-4 text-lg">
+					{data.description}
+				</p>
+			</div>
+			<!-- end description -->
+
+			<dl
+				class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+				<div class="relative pt-5">
+					<!-- Bg Border -->
+					<span
+						class="absolute left-0 top-0 block h-1.5 w-1/2 rounded-tl-lg bg-primary"
+					></span>
+					<span
+						class="absolute right-0 top-0 block h-1.5 w-1/2 rounded-tr-lg bg-secondary"
+					></span>
+					<dt class="text-2xl font-medium text-accent">Avantages</dt>
+					<dd class="mt-2">
+						- Son côté convivial et sympathique, qui plaira au plus grand nombre <br
+						/>
+						- Les marches tout en courbes, originales et confortables Le Safety
+						<br />
+						- Ledge périphérique, assurant solidité et confort à votre piscine coque
+						<br />
+					</dd>
+				</div>
+				<div class="relative pt-5">
+					<!-- Bg Border -->
+					<span
+						class="absolute left-0 top-0 block h-1.5 w-1/2 rounded-tl-lg bg-primary"
+					></span>
+					<span
+						class="absolute right-0 top-0 block h-1.5 w-1/2 rounded-tr-lg bg-secondary"
+					></span>
+					<dt class="text-2xl font-medium text-accent">
+						Equipements disponibles
+					</dt>
+					<dd class="mt-2">
+						- Skimmer : 1<br />
+						- Refoulement : 3<br />
+						- Bonde de fond : 1<br />
+						- Bouchon de prévention : 1<br />
+						- Prise balai : 1<br />
+						- Projecteur LED blanc : 1<br />
+						- Aquaterre + Tresse + Piquet : 1<br />
+					</dd>
+				</div>
+				<div class="relative pt-5">
+					<!-- Bg Border -->
+					<span
+						class="absolute left-0 top-0 block h-1.5 w-1/2 rounded-tl-lg bg-primary"
+					></span>
+					<span
+						class="absolute right-0 top-0 block h-1.5 w-1/2 rounded-tr-lg bg-secondary"
+					></span>
+					<dt class="text-2xl font-medium text-accent">Dimensions</dt>
+					<dd class="mt-2">
+						{
+							data.dimension.map(
+								dim =>
+									`Long: ${dim.long} x  Lar: ${dim.larg} x Prof: ${dim.prof} |`
+							)
+						}
+					</dd>
+				</div>
+				<div class="relative pt-4">
+					<!-- Bg Border -->
+					<span
+						class="absolute left-0 top-0 block h-1.5 w-1/2 rounded-tl-lg bg-primary"
+					></span>
+					<span
+						class="absolute right-0 top-0 block h-1.5 w-1/2 rounded-tr-lg bg-secondary"
+					></span>
+					<dt class="text-2xl font-medium text-accent">
+						Spécificités du bassin
+					</dt>
+					<dd class="mt-2">
+						- Type de fond : Piscine à fond plat<br />
+						- Volet : Possibilité de mettre un volet hors-sol ou immergé<br />
+						- Escalier : Grand escalier toute largeur<br />
+						- Espace détente : Banquette et bain de soleil une place
+					</dd>
+				</div>
+			</dl>
+		</section>
+		<section
+			class="relative overflow-hidden bg-gradient-to-t from-black/30 to-accent/30">
+			<img
+				src={data.url}
+				class="absolute -z-1 h-full w-full bg-cover mix-blend-overlay"
+				alt=""
+			/>
+			<div
+				class="mx-auto my-16 w-[95%] max-w-2xl rounded-xl bg-white px-8 py-12">
+				<Forms textProject={formSugestion} />
+			</div>
+		</section>
 	</main>
 </MainLayout>
+
+<script is:inline>
+	const returnBtn = document.querySelector(".return")
+	returnBtn.addEventListener("click", e => {
+		e.preventDefault()
+		history.back()
+	})
+</script>

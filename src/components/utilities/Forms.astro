@@ -1,5 +1,9 @@
 ---
 //todo  refacto the form input into input component
+interface Props {
+	textProject?: string
+}
+const { textProject = "" } = Astro.props
 ---
 
 <form action="#home" method="POST">
@@ -12,7 +16,7 @@
 				id="fullname"
 				placeholder="Nom Prénom"
 				required
-				class="peer w-full rounded-lg border border-strokedark bg-transparent px-6 py-3.5 placeholder-transparent shadow-4 focus:border-primary focus:shadow-5 focus-visible:outline-none"
+				class="peer w-full rounded-lg border border-strokedark bg-transparent px-6 py-3.5 font-semibold text-blacksection placeholder-transparent shadow-4 focus:border-primary focus:shadow-5 focus-visible:outline-none"
 			/>
 			<label
 				class="absolute -top-5 left-2 mb-4 -translate-y-1/2 font-semibold uppercase transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-1/2 peer-focus:-top-5 peer-focus:left-2"
@@ -27,7 +31,7 @@
 				id="email"
 				placeholder="example@gmail.com"
 				required
-				class="peer w-full rounded-lg border border-strokedark bg-transparent px-6 py-3.5 placeholder-transparent shadow-4 focus:border-primary focus:shadow-5 focus-visible:outline-none"
+				class="peer w-full rounded-lg border border-strokedark bg-transparent px-6 py-3.5 font-semibold text-blacksection placeholder-transparent shadow-4 focus:border-primary focus:shadow-5 focus-visible:outline-none"
 			/>
 			<label
 				class="absolute -top-5 left-2 mb-4 -translate-y-1/2 font-semibold uppercase transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-1/2 peer-focus:-top-5 peer-focus:left-2"
@@ -41,7 +45,7 @@
 			id="subject"
 			placeholder="Type your subject"
 			required
-			class="peer w-full rounded-lg border border-strokedark bg-transparent px-6 py-3.5 placeholder-transparent shadow-4 focus:border-primary focus:shadow-5 focus-visible:outline-none"
+			class="peer w-full rounded-lg border border-strokedark bg-transparent px-6 py-3.5 font-semibold text-blacksection placeholder-transparent shadow-4 focus:border-primary focus:shadow-5 focus-visible:outline-none"
 		/>
 		<label
 			class="absolute -top-5 left-2 mb-4 -translate-y-1/2 font-semibold uppercase transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-1/2 peer-focus:-top-5 peer-focus:left-2"
@@ -58,7 +62,7 @@
 				id="phone"
 				placeholder="+009 3342 3432"
 				required
-				class="peer w-full rounded-lg border border-strokedark bg-transparent px-6 py-3.5 placeholder-transparent shadow-4 focus:border-primary focus:shadow-5 focus-visible:outline-none"
+				class="peer w-full rounded-lg border border-strokedark bg-transparent px-6 py-3.5 font-semibold text-blacksection placeholder-transparent shadow-4 focus:border-primary focus:shadow-5 focus-visible:outline-none"
 			/>
 			<label
 				class="absolute -top-5 left-2 mb-4 -translate-y-1/2 font-semibold uppercase transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-1/2 peer-focus:-top-5 peer-focus:left-2"
@@ -79,7 +83,7 @@
 				<option value="5">Ne sait pas</option>
 			</select>
 			<div
-				class="text-gray-700 pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+				class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
 				<svg
 					class="h-4 w-4 fill-current"
 					xmlns="http://www.w3.org/2000/svg"
@@ -99,8 +103,9 @@
 			name="message"
 			id="message"
 			required
-			class="peer w-full resize-none rounded-lg border border-strokedark bg-transparent p-6 placeholder-transparent shadow-4 focus:border-primary focus:shadow-5 focus-visible:outline-none"
-		></textarea>
+			class="peer w-full resize-none rounded-lg border border-strokedark bg-transparent p-6 font-semibold text-blacksection placeholder-transparent shadow-4 focus:border-primary focus:shadow-5 focus-visible:outline-none"
+			>{textProject}</textarea
+		>
 		<label
 			class="absolute -top-3 left-2 mb-4 -translate-y-1/2 font-semibold transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-8 peer-focus:-top-5 peer-focus:left-2"
 			for="message"
