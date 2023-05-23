@@ -34,6 +34,9 @@ module.exports = {
 				'title-xsm2': ['19px', '35px'],
 				regular: ['16px', '26px'],
 			},
+			backgroundImage: {
+				'hero-pattern': "url('/images/hero/bg-image.png')"
+			},
 			spacing: {
 				4.5: '1.125rem',
 				5.5: '1.375rem',
