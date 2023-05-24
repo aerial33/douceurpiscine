@@ -1,9 +1,10 @@
 ---
-import { getCollection } from "astro:content"
+import { getCollection, CollectionEntry } from "astro:content"
 import { Forms } from "../../components/utilities"
 import MainLayout from "../../layouts/MainLayout.astro"
 import creatSlug from "../../lib/creatSlug"
 import { Icon } from "astro-icon"
+import { Link } from "../../components/utilities"
 
 export async function getStaticPaths() {
 	const allPools = await getCollection("pools")
@@ -13,7 +14,7 @@ export async function getStaticPaths() {
 	}))
 }
 
-const { data, render, id } = Astro.props
+const { data, render } = Astro.props as CollectionEntry<"pools">
 const { Content } = await render()
 
 const dimensions = data.dimension.map(dim => `${dim.long} x  ${dim.larg}`)
@@ -56,7 +57,9 @@ Cordialement.
 						<p class="mt-2 text-lg font-semibold">{data.tag}</p>
 					</div>
 					<div>
-						<p class="font-medium">Dimensions disponibles</p>
+						<p class="mb-1 text-center font-medium">
+							{data.dimension.length} Dimensions disponibles
+						</p>
 						{
 							dimensions.map(dimension => (
 								<p class="mr-2 inline-block rounded-full border border-primary px-2  py-1 text-sm font-medium text-accent">
@@ -125,12 +128,23 @@ Cordialement.
 				<span
 					class="absolute right-0 top-0 block h-1.5 w-1/2 rounded-tr-lg bg-secondary"
 				></span>
-				<h2 class="text-gradient text-3xl font-bold tracking-tight sm:text-4xl">
-					La Piscine : {data.name}
-				</h2>
-				<p class="mt-4 text-lg">
-					{data.description}
-				</p>
+				<div class="flex flex-col items-center justify-center">
+					<h2
+						class="text-gradient text-center text-3xl font-bold tracking-tight sm:text-4xl">
+						La Piscine : {data.name}
+					</h2>
+					<Content />
+					<Link
+						text={`contactez notre équipe commerciale pour le modèle ${data.name}`}
+						href={`#contact-${data.name}`}
+						classes="group mt-2"
+						icon={{
+							name: "ph:caret-right-light",
+							side: "right",
+							classeSvg: "transition-all group-hover:translate-x-0.5",
+						}}
+					/>
+				</div>
 			</div>
 			<!-- end description -->
 
@@ -144,14 +158,13 @@ Cordialement.
 					<span
 						class="absolute right-0 top-0 block h-1.5 w-1/2 rounded-tr-lg bg-secondary"
 					></span>
-					<dt class="text-2xl font-medium text-accent">Avantages</dt>
+					<dt class="font-roboto text-2xl font-medium text-accent">
+						Avantages
+					</dt>
 					<dd class="mt-2">
-						- Son côté convivial et sympathique, qui plaira au plus grand nombre <br
-						/>
-						- Les marches tout en courbes, originales et confortables Le Safety
-						<br />
-						- Ledge périphérique, assurant solidité et confort à votre piscine coque
-						<br />
+						<ul>
+							{data.advantages.map(advantage => <li>- {advantage}</li>)}
+						</ul>
 					</dd>
 				</div>
 				<div class="relative pt-5">
@@ -162,17 +175,19 @@ Cordialement.
 					<span
 						class="absolute right-0 top-0 block h-1.5 w-1/2 rounded-tr-lg bg-secondary"
 					></span>
-					<dt class="text-2xl font-medium text-accent">
+					<dt class="font-roboto text-2xl font-medium text-accent">
 						Equipements disponibles
 					</dt>
 					<dd class="mt-2">
-						- Skimmer : 1<br />
-						- Refoulement : 3<br />
-						- Bonde de fond : 1<br />
-						- Bouchon de prévention : 1<br />
-						- Prise balai : 1<br />
-						- Projecteur LED blanc : 1<br />
-						- Aquaterre + Tresse + Piquet : 1<br />
+						<ul>
+							{
+								data.attribut.equipment.map(equip => (
+									<li>
+										- {equip.name}: {equip.quantity}
+									</li>
+								))
+							}
+						</ul>
 					</dd>
 				</div>
 				<div class="relative pt-5">
@@ -183,14 +198,20 @@ Cordialement.
 					<span
 						class="absolute right-0 top-0 block h-1.5 w-1/2 rounded-tr-lg bg-secondary"
 					></span>
-					<dt class="text-2xl font-medium text-accent">Dimensions</dt>
+					<dt class="font-roboto text-2xl font-medium text-accent">
+						{data.dimension.length} Dimensions diponibles
+					</dt>
 					<dd class="mt-2">
-						{
-							data.dimension.map(
-								dim =>
-									`Long: ${dim.long} x  Lar: ${dim.larg} x Prof: ${dim.prof} |`
-							)
-						}
+						<ul>
+							{
+								data.dimension.map(dim => (
+									<li class="mb-2 text-xs sm:text-sm">
+										Longueur: {dim.long} | Largeur: {dim.larg} | Profondeur:
+										{dim.prof}
+									</li>
+								))
+							}
+						</ul>
 					</dd>
 				</div>
 				<div class="relative pt-4">
@@ -201,19 +222,20 @@ Cordialement.
 					<span
 						class="absolute right-0 top-0 block h-1.5 w-1/2 rounded-tr-lg bg-secondary"
 					></span>
-					<dt class="text-2xl font-medium text-accent">
+					<dt class="font-roboto text-2xl font-medium text-accent">
 						Spécificités du bassin
 					</dt>
 					<dd class="mt-2">
-						- Type de fond : Piscine à fond plat<br />
-						- Volet : Possibilité de mettre un volet hors-sol ou immergé<br />
-						- Escalier : Grand escalier toute largeur<br />
-						- Espace détente : Banquette et bain de soleil une place
+						- Type de fond : {data.attribut.specifics.typeDeFond}<br />
+						- Volet : {data.attribut.specifics.volet}<br />
+						- Escalier : {data.attribut.specifics.escalier}<br />
+						- Espace détente : {data.attribut.specifics.espaceDetente}
 					</dd>
 				</div>
 			</dl>
 		</section>
 		<section
+			id=`contact-${data.name}`
 			class="relative overflow-hidden bg-gradient-to-t from-black/30 to-accent/30">
 			<img
 				src={data.url}

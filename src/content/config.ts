@@ -8,15 +8,7 @@ const poolSchema = defineCollection({
 		type: z.string(),
 		tag: z.string(),
 		description: z.string(),
-		colors: z
-			.array(
-				z.object({
-					pastille: z.string(),
-					colorname: z.string(),
-				})
-			)
-			.optional(),
-		images: z.array(z.string()),
+		advantages: z.array(z.string()).optional(),
 		dimension: z.array(
 			z.object({
 				long: z.string(),
@@ -24,6 +16,25 @@ const poolSchema = defineCollection({
 				prof: z.string(),
 			})
 		),
+		attribut: z.object({
+			equipment: z
+				.array(
+					z.object({
+						name: z.string(),
+						quantity: z.number(),
+					})
+				)
+				.optional(),
+			specifics: z
+				.object({
+					typeDeFond: z.string(),
+					volet: z.string(),
+					escalier: z.string(),
+					espaceDetente: z.string(),
+				})
+				.optional(),
+		}),
+		images: z.array(z.string()),
 	}),
 })
 
