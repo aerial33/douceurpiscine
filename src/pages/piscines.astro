@@ -6,6 +6,7 @@ import MainLayout from "../layouts/MainLayout.astro"
 
 const manhattan = await getEntryBySlug("pools", "p1-manhattan")
 const lagoon = await getEntryBySlug("pools", "t6-lagoon")
+const tropical = await getEntryBySlug("pools", "r4-tropial")
 
 const title =
 	"Explorez nos piscines coque aux formes, tailles et styles variés pour des moments inoubliables."
@@ -19,32 +20,33 @@ const titleText =
 		<HeaderPage title={title} titleText={titleText} />
 		<section
 			class="relative z-10 mx-auto my-12.5 max-w-7xl px-4 md:px-8 lg:mt-20 xl:px-9">
-			<div class="mb-12 py-7">
+			<div class="mb-12 rounded-t-2xl bg-white px-1 py-7 md:p-7">
 				<h2
 					class="text-gradient mx-auto text-center text-2xl font-bold md:w-4/5 lg:w-2/3 lg:text-4xl lg:leading-tight">
 					Personnalisez votre piscine idéale avec nos options de fond et
 					d'escaliers
 				</h2>
 				<p class="mt-6 leading-relaxed lg:text-lg">
-					La piscine à fond plat offre une profondeur uniforme, ce qui en fait
-					l'option la plus courante pour les piscines.
+					La piscine à fond plat offre une profondeur constante, ce qui en fait
+					l'option la plus populaire pour les piscines résidentielles.
 				</p>
-				<p class="leading-relaxed lg:text-lg">
-					La piscine à fond incliné, également appelée piscine à fond
-					progressif, présente une profondeur qui varie en douceur, créant une
-					pente légère.
+				<p class="mt-2 leading-relaxed lg:text-lg">
+					La piscine à fond incliné, également connue sous le nom de piscine à
+					fond progressif, présente une profondeur qui varie en douceur, créant
+					une pente subtile et agréable.
 				</p>
-				<p class="leading-relaxed lg:text-lg">
-					Selon vos préférences (Blue Pearl, Spicy, Lagoon ou Récif),
-					personnalisez votre piscine Douceur en sélectionnant les escaliers qui
-					vous conviennent le mieux (Virgin, Tropical, Paradise)
+				<p class="mt-2 leading-relaxed lg:text-lg">
+					Personnalisez votre piscine selon vos préférences en choisissant parmi
+					nos modèles (Blue Pearl, Spicy, Lagoon ou Récif) et en sélectionnant
+					l'escalier qui vous convient le mieux (Virgin, Tropical, Paradise).
+					Créez ainsi une piscine unique et adaptée à vos besoins.
 				</p>
 			</div>
-			<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 				<!-- Pool Fond Plat -->
 				<div class="animate_top text-center">
 					<div
-						class="group relative z-1 overflow-hidden rounded-xl bg-gradient-to-t from-black/50 to-black/10">
+						class="group relative z-1 overflow-hidden rounded-xl bg-gradient-to-t from-black/50 to-black/10 shadow">
 						<img
 							class="w-full mix-blend-overlay"
 							src={manhattan.data.url}
@@ -84,7 +86,7 @@ const titleText =
 				<!-- Pool Fond Incliné  -->
 				<div class="animate_top text-center">
 					<div
-						class="group relative z-1 overflow-hidden rounded-xl bg-gradient-to-t from-black/50 to-black/10">
+						class="group relative z-1 overflow-hidden rounded-xl bg-gradient-to-t from-black/50 to-black/10 shadow">
 						<img
 							class="h-full w-full rounded-xl mix-blend-overlay"
 							src={lagoon.data.url}
@@ -107,6 +109,46 @@ const titleText =
 								<div class="group/item flex items-center justify-center">
 									<a
 										href="/modeles-piscines/piscine-a-fond-incline"
+										class="font-semibold text-whiter duration-300 ease-in-out group-hover/item:text-secondary">
+										Découvrir
+									</a>
+									<Icon
+										name="ic:baseline-keyboard-arrow-right"
+										width="24"
+										class="text-white duration-300 ease-in-out group-hover/item:translate-x-0.5 group-hover/item:text-secondary"
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Pools Composables -->
+				<div class="animate_top text-center">
+					<div
+						class="group relative z-1 h-full overflow-hidden rounded-xl bg-gradient-to-t from-black/50 to-black/10 shadow">
+						<img
+							class="h-full w-full rounded-xl mix-blend-overlay"
+							src={tropical.data.url}
+							alt="Team"
+						/>
+						<h4
+							class="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center text-xl text-whiter md:text-title-sm">
+							Piscines Composables
+						</h4>
+
+						<div
+							class="translate-y-25 duration-300 ease-linear group-hover:translate-y-0">
+							<span
+								class="absolute -bottom-21 -left-5 z-20 block h-37.5 w-[120%] rotate-6 bg-primary"
+							></span>
+							<span
+								class="absolute bottom-0 left-0 z-10 block h-17 w-full bg-secondary"
+							></span>
+							<div class="absolute bottom-0 left-0 z-30 w-full pb-5 pt-7.5">
+								<div class="group/item flex items-center justify-center">
+									<a
+										href="/modeles-piscines/piscine-composable"
 										class="font-semibold text-whiter duration-300 ease-in-out group-hover/item:text-secondary">
 										Découvrir
 									</a>

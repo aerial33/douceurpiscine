@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content"
+import { Icon } from "astro-icon"
+import { HeaderPage } from "../../components"
+import MainLayout from "../../layouts/MainLayout.astro"
+import PoolGrid from "../../components/PoolGrid"
+import { Link } from "../../components/utilities"
+
+const allPools = await getCollection("pools")
+const flatPool = allPools.filter(({ data }) => data.tag === "composable")
+
+const title = "Nos Piscines Combinables"
+const titleText = "Composez votre piscine à partir de nos modèles de bases !"
+//todo write a description metatag
+---
+
+<MainLayout title="Pose et vente piscines coques polyester Bordeaux Gironde">
+	<main class="relative overflow-hidden pt-15 lg:pt-20 xl:pt-25">
+		<HeaderPage title={title} titleText={titleText} />
+		<section
+			class="relative z-10 mx-auto my-12.5 max-w-7xl px-4 md:px-8 lg:mt-20 xl:px-9">
+			<div
+				class="mb-12 flex flex-col items-center gap-8 rounded-t-2xl bg-white px-1 py-7 md:p-7 lg:flex-row">
+				<div>
+					<h2
+						class="text-gradient text-2xl font-bold leading-tight lg:text-4xl lg:leading-tight">
+						Personnalisez votre piscine idéale avec nos escaliers plages
+						<em>"Virgin"</em>,
+						<em>"Tropical"</em> et <em>"Paradise"</em>
+					</h2>
+					<p class="mx-auto mt-12 leading-relaxed lg:text-lg">
+						Le meilleur de la piscine polyester associé à des escaliers-plages
+						conviviaux vous permettant de profiter au mieux de votre piscine
+						tout en conservant une surface de nage optimisée.
+					</p>
+					<p class="mx-auto leading-relaxed lg:text-lg">
+						En partant de la base de votre choix
+						<Link href="/modeles-piscines/Blue-Pearl" text="Blue Pearl " />,
+						<Link href="/modeles-piscines/Spicy" text="Spicy " />,
+						<Link href="/modeles-piscines/Recif" text="Récif " /> et
+						<Link href="/modeles-piscines/Lagoon" text="Lagoon" /> composez vous-mêmes
+						votre piscine en y ajoutant les escaliers de votre choix (Virgin, Tropical
+						ou Paradise).
+					</p>
+					<p class="mx-auto leading-relaxed lg:text-lg">
+						Les escaliers et les plages proposés par Douceur Piscine peuvent
+						être combinés de différentes manières pour personnaliser votre
+						bassin en fonction de vos choix et de vos envies. Cette flexibilité
+						vous permet de créer une piscine unique qui répond à vos besoins et
+						à votre style de vie.
+					</p>
+				</div>
+				<div>
+					<Icon name="composable" class="w-[380px] px-4 xl:w-[420px]" />
+				</div>
+			</div>
+			<PoolGrid pools={flatPool} />
+		</section>
+	</main>
+</MainLayout>

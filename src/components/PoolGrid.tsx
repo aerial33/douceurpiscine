@@ -25,6 +25,7 @@ export default function PoolGrid({
 								name={data.name}
 								url={data.url}
 								description={data.description}
+								composable={data.composable}
 							/>
 						</a>
 					</li>

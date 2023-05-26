@@ -21,6 +21,10 @@ const navData: Navlink[] = [
 				name: "Piscines avec fond incliné",
 				path: "/modeles-piscines/piscine-a-fond-incline",
 			},
+			{
+				name: "Piscines avec escaliers plages",
+				path: "/modeles-piscines/piscine-composable",
+			},
 		],
 	},
 	{

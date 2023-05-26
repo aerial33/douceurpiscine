@@ -6,9 +6,7 @@ import PoolGrid from "../../components/PoolGrid"
 
 const allPools = await getCollection("pools")
 // console.log(allPools)
-const inclinedPool = allPools.filter(
-	({ data }) => data.tag === "fond progressif"
-)
+const inclinedPool = allPools.filter(({ data }) => data.tag === "progressif")
 
 const title = "Piscines à fond incliné"
 const titleText =

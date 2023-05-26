@@ -6,7 +6,8 @@ const poolSchema = defineCollection({
 		url: z.string().url(),
 		thumb: z.string().optional(),
 		type: z.string(),
-		tag: z.string(),
+		tag: z.enum(["plat", "progressif", "composable"]),
+		composable: z.boolean().optional(),
 		description: z.string(),
 		advantages: z.array(z.string()).optional(),
 		dimension: z.array(

@@ -4,10 +4,12 @@ export default function ({
 	name,
 	url,
 	description,
+	composable,
 }: {
 	name: string
 	url: string
 	description: string
+	composable: boolean
 }) {
 	return (
 		<article class="group">
@@ -17,6 +19,12 @@ export default function ({
 					src={url}
 					class="h-56 w-full rounded-xl object-cover shadow-xl transition group-hover:mix-blend-overlay"
 				/>
+				{composable && (
+					<div class="absolute left-2 top-6 -rotate-12 rounded-md bg-white/80 p-1 text-sm font-semibold text-meta-orange">
+						Escalier modulables
+					</div>
+				)}
+
 				<div class="translate-y-25 duration-300 ease-linear group-hover:translate-y-0">
 					<span class="absolute -bottom-21 -left-5 z-20 block h-37.5 w-[120%] rotate-6 bg-white/20 backdrop-blur-md"></span>
 					<div class="absolute bottom-0 left-0 z-30 w-full pb-5 pt-7.5">

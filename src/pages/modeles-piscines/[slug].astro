@@ -54,11 +54,17 @@ Cordialement.
 								{data.name}
 							</h1>
 						</div>
-						<p class="mt-2 text-lg font-semibold">{data.tag}</p>
+						<p class="mt-2 text-lg font-semibold">
+							{data.attribut.specifics.typeDeFond}
+						</p>
 					</div>
 					<div>
 						<p class="mb-1 text-center font-medium">
-							{data.dimension.length} Dimensions disponibles
+							{
+								data.dimension.length > 1
+									? `${data.dimension.length} Dimensions disponibles`
+									: "1 Dimension disponible"
+							}
 						</p>
 						{
 							dimensions.map(dimension => (
@@ -137,7 +143,7 @@ Cordialement.
 					<Link
 						text={`contactez notre équipe commerciale pour le modèle ${data.name}`}
 						href={`#contact-${data.name}`}
-						classes="group mt-2"
+						classes="group mt-4 text-sm md:text-lg font-semibold"
 						icon={{
 							name: "ph:caret-right-light",
 							side: "right",
@@ -199,7 +205,11 @@ Cordialement.
 						class="absolute right-0 top-0 block h-1.5 w-1/2 rounded-tr-lg bg-secondary"
 					></span>
 					<dt class="font-roboto text-2xl font-medium text-accent">
-						{data.dimension.length} Dimensions diponibles
+						{
+							data.dimension.length > 1
+								? `${data.dimension.length} Dimensions disponibles`
+								: "1 Dimension disponible"
+						}
 					</dt>
 					<dd class="mt-2">
 						<ul>
@@ -223,7 +233,7 @@ Cordialement.
 						class="absolute right-0 top-0 block h-1.5 w-1/2 rounded-tr-lg bg-secondary"
 					></span>
 					<dt class="font-roboto text-2xl font-medium text-accent">
-						Spécificités du bassin
+						Fonctionnalités du bassin
 					</dt>
 					<dd class="mt-2">
 						- Type de fond : {data.attribut.specifics.typeDeFond}<br />

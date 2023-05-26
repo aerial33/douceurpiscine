@@ -5,7 +5,7 @@ import MainLayout from "../../layouts/MainLayout.astro"
 import PoolGrid from "../../components/PoolGrid"
 
 const allPools = await getCollection("pools")
-const flatPool = allPools.filter(({ data }) => data.tag === "fond plat")
+const flatPool = allPools.filter(({ data }) => data.tag === "plat")
 
 const title = "Piscines à fond plat"
 const titleText = "Les piscines coque idéale pour toute la famille !"
