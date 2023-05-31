@@ -6,6 +6,7 @@ interface Testimonial {
 	ville: string
 	temoignage: string
 	photo: string
+	size?: number
 }
 interface CarousselProps {
 	slides: Testimonial[]
@@ -53,7 +54,8 @@ function Carrousel({ slides }: CarousselProps) {
 									{slides[currentSlide].ville}
 								</span>
 								<span class="block">
-									Piscine coque de 10m en Gironde à st Jean d'Illac
+									Piscine coque de {slides[currentSlide].size}m en Gironde à st
+									{slides[currentSlide].ville}
 								</span>
 							</div>
 							<img src="/favicon.svg" width="42" alt="" />
