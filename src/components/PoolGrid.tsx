@@ -17,7 +17,9 @@ export default function PoolGrid({
 
 	return (
 		<>
-			<ul role="list" class="grid grid-cols-1 gap-x-3 gap-y-8 sm:grid-cols-3">
+			<ul
+				role="list"
+				class="grid grid-cols-1 gap-x-3 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
 				{pools.map(({ data }) => (
 					<li>
 						<a href={`/modeles-piscines/${creatSlug(data.name)}`}>
