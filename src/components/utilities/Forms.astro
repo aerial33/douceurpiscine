@@ -6,7 +6,17 @@ interface Props {
 const { textProject = "" } = Astro.props
 ---
 
-<form action="#home" method="POST">
+<form
+	action="/"
+	method="POST"
+	data-netlify="true"
+	netlify-honeypot="bot-field"
+	novalidate>
+	<p class="hidden">
+		<label
+			>Don’t fill this out if you're human: <input name="bot-field" /></label
+		>
+	</p>
 	<div
 		class="mb-12 mt-7.5 flex flex-col gap-12 lg:flex-row lg:justify-between lg:gap-10">
 		<div class="relative w-full lg:w-1/2">
@@ -96,7 +106,7 @@ const { textProject = "" } = Astro.props
 		</div>
 	</div>
 
-	<div class="relative mb-10 mt-14">
+	<div class="relative mt-14">
 		<textarea
 			placeholder="Message"
 			rows="4"
@@ -112,11 +122,47 @@ const { textProject = "" } = Astro.props
 			>Posez vos questions ou précisez les détails de votre projet.*
 		</label>
 	</div>
+	<div class="mb-10 mt-1">
+		<input
+			class="form-check-input"
+			type="checkbox"
+			value=""
+			id="invalidCheck"
+			required
+		/>
+		<label class="text-sm" for="invalidCheck">
+			* Champs obligatoires. En cochant cette case, j'accepte les conditions
+			particulières ci-dessous.
+		</label>
+		<div data-netlify-recaptcha="true"></div>
+	</div>
 
 	<div class="flex justify-center">
 		<button
 			class="inline-flex rounded-full bg-primary px-7.5 py-3 text-white duration-300 ease-in-out hover:shadow-1"
 			>Envoyer
 		</button>
+	</div>
+	<div class="form-check mt-14">
+		<div class="mt-8 text-xs">
+			Les données personnelles communiquées sont nécessaires aux fins de vous
+			contacter. Elles sont destinées à Douceur Piscine et ses sous-traitants.
+			Vous disposez de droits d’accès, de rectification, d’effacement, de
+			portabilité, de limitation, d’opposition, de retrait de votre consentement
+			à tout moment et du droit d’introduire une réclamation auprès d’une
+			autorité de contrôle, ainsi que d’organiser le sort de vos données
+			post-mortem. Vous pouvez exercer ces droits par voie postale à l'adresse
+			572 Avenue de Boulac 33127 Saint-Jean-d'Illac, ou par courrier
+			électronique à l'adresse contact@couleurpiscine.com. Un justificatif
+			d'identité pourra vous être demandé. Nous conservons vos données pendant
+			la période de prise de contact puis pendant la durée de prescription
+			légale aux fins probatoires et de gestion des contentieux. Si vous ne
+			souhaitez pas faire l’objet de prospection commerciale par voie
+			téléphonique, vous pouvez gratuitement vous inscrire sur une liste
+			d’opposition au démarchage téléphonique (Bloctel) sur le site internet
+			www.bloctel.gouv.fr , étant précisé que l’inscription sur ladite liste
+			n’est pas opposable au professionnel en cas de relations contractuelles
+			préexistantes.
+		</div>
 	</div>
 </form>
