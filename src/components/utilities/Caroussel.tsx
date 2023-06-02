@@ -54,7 +54,7 @@ function Carrousel({ slides }: CarousselProps) {
 									{slides[currentSlide].ville}
 								</span>
 								<span class="block">
-									Piscine coque de {slides[currentSlide].size}m en Gironde à
+									Piscine coque de {slides[currentSlide].size}m en Gironde à{" "}
 									{slides[currentSlide].ville}
 								</span>
 							</div>
