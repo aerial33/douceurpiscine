@@ -25,11 +25,11 @@ function Carrousel({ slides }: CarousselProps) {
 
 	return (
 		<>
-			<div class="relative rounded-lg bg-white p-9 pr-10 shadow-3">
+			<div class="relative animate-slideleft rounded-lg bg-white p-9 pr-10 shadow-3 transition-all">
 				<span class="absolute right-0 top-0 block h-1/2 w-1.5 rounded-tr-lg bg-primary"></span>
 				<span class="absolute bottom-0 right-0 block h-1/2 w-1.5 rounded-br-lg bg-secondary"></span>
 
-				<div class=" flex flex-col gap-7.5 md:items-center lg:flex-row lg:justify-between lg:gap-12">
+				<div class=" flex  flex-col gap-7.5 md:items-center lg:flex-row lg:justify-between lg:gap-12">
 					<img
 						class="rounded-md bg-cover duration-500 lg:w-1/3"
 						src={slides[currentSlide].photo}
@@ -54,7 +54,7 @@ function Carrousel({ slides }: CarousselProps) {
 									{slides[currentSlide].ville}
 								</span>
 								<span class="block">
-									Piscine coque de {slides[currentSlide].size}m en Gironde à st
+									Piscine coque de {slides[currentSlide].size}m en Gironde à
 									{slides[currentSlide].ville}
 								</span>
 							</div>

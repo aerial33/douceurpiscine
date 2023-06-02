@@ -1,0 +1,21 @@
+---
+import MainLayout from "../layouts/MainLayout.astro"
+import { Icon } from "astro-icon"
+import { Link } from "../components/utilities"
+
+const title = "Formulaire envoyé avec succés"
+---
+
+<MainLayout title={title}>
+	<main
+		class="flex min-h-screen flex-col place-content-center items-center gap-12">
+		<h1 class="text-title-xxl text-accent">Merci !</h1>
+		<Icon name="ph:check-bold" width="72" class="text-meta-green" />
+		<p class="text-center">
+			Nous avons bien reçu votre demande, nous vous contacterons dans les
+			meilleurs délais !
+		</p>
+
+		<Link text="retour à l'accueil" href="/" borderVisible={true} />
+	</main>
+</MainLayout>

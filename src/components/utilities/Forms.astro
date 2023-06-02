@@ -6,7 +6,7 @@ interface Props {
 const { textProject = "" } = Astro.props
 ---
 
-<form action="/" method="POST" netlify netlify-honeypot="bot-field">
+<form action="/success" method="POST" netlify netlify-honeypot="bot-field">
 	<p class="hidden">
 		<label
 			>Don’t fill this out if you're human: <input name="bot-field" /></label
@@ -81,11 +81,11 @@ const { textProject = "" } = Astro.props
 				id="type-projet"
 				name="type-projet">
 				<option class="font-semibold">Projet...</option>
-				<option value="1">Piscine en Kit</option>
-				<option value="2">Piscine en Kit assisté</option>
-				<option value="3">Prêt au bain</option>
-				<option value="4">SPA</option>
-				<option value="5">Ne sait pas</option>
+				<option value="Piscine en Kit">Piscine en Kit</option>
+				<option value="Piscine en Kit assisté">Piscine en Kit assisté</option>
+				<option value="Prêt au bain">Prêt au bain</option>
+				<option value="SPA">SPA</option>
+				<option value="Ne sait pas">Ne sait pas</option>
 			</select>
 			<div
 				class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
