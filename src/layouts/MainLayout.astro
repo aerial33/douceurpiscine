@@ -30,5 +30,18 @@ const { title, description } = Astro.props
 
 			gtag("config", "UA-165476756-1")
 		</script>
+		<script>
+			window.axeptioSettings = {
+				clientId: "5bed7af30e6447126c493e97",
+				cookiesVersion: "hub-fr",
+			}
+			;(function (d, s) {
+				var t = d.getElementsByTagName(s)[0],
+					e = d.createElement(s)
+				e.async = true
+				e.src = "//static.axept.io/sdk.js"
+				t.parentNode.insertBefore(e, t)
+			})(document, "script")
+		</script>
 	</body>
 </html>
