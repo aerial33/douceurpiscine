@@ -1,0 +1,37 @@
+---
+import MainLayout from "../layouts/MainLayout.astro"
+import { siteParams } from "../data/siteData"
+---
+
+<MainLayout>
+	<main
+		class="mx-auto flex min-h-screen max-w-1390 flex-col gap-12 px-4 py-24 md:pt-45">
+		<h1 class="text-3xl text-accent">
+			Mentions légales du site internet de {siteParams.name}
+		</h1>
+		<div class="flex flex-col gap-4 text-left">
+			<p>Ce site est édité par : {siteParams.name}</p>
+			<p>Adresse : {siteParams.location.adresse} {siteParams.location.city}</p>
+			<p>Téléphone: {siteParams.phone}</p>
+
+			<p>N° SIRET de l’établissement : 89295031200017</p>
+
+			<p>N° d’assujettissement à la TVA : FR08892950312</p>
+
+			<p>Titre professionnel–Autorisation :</p>
+			<p>Référence aux règles professionnelles applicables :</p>
+			<p>Qualité de locataire gérant ou gérant mandataire :</p>
+			<p>
+				Mentions légales spécifiques : photos by {siteParams.name} and source from
+				Unsplash.com with photo by Dim hou and John Fornander
+			</p>
+			<p>Directeur de rédaction et de publication : {siteParams.name}</p>
+			<p>
+				Hébergeur : Netlifly - https://www.netlify.com – 610 22nd Street, Suite
+				315 CA 94107 San Francisco 0767645427
+			</p>
+
+			<p>Ce site a été conçu et réalisé par DevsnWeb</p>
+		</div>
+	</main>
+</MainLayout>Ce site a été conçu et réalisé par DevsnWeb
