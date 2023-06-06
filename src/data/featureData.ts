@@ -12,7 +12,7 @@ type Feature = {
 const featureData: Feature[] = [
 	{
 		title: "25 ans d'expérience",
-		description: `Douceur Piscine assure l'installation de piscines à coque en
+		description: `Douceur Piscine assure l'installation de votre piscine coque en
     assurant un suivi de A à Z, des demandes auprès de la mairie à
     l'installation de bassins dans vos jardins.`,
 		badgeColor: "bg-secondary",
